@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.header_content {
+	min-height: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* 왼쪽 요소에 대한 스타일 */
+.left-content {
+	font-size: 37px;
+	letter-spacing: 6px;
+	font-weight: bold;
+	margin-left: 10px;
+	/* 글자 세로 중앙 정렬 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 오른쪽 요소에 대한 스타일 */
+.right-content {
+	font-size: 35px;
+	letter-spacing: 6px;
+	font-weight: bold;
+	margin-right: 10px;
+	/* 글자 세로 중앙 정렬 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main_content {
+	background-color: #E9ECEF;
+	min-height: 790px;
+	position: relative; /* 위치 지정을 위한 기준으로 설정 */
+}
+
