@@ -4,5 +4,4 @@
 
 /* 로그인 버튼 클릭 */
 function submit_form(){
-	alert("hello")
 }

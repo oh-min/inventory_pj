@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.login_content {
+.login_container {
 	position: absolute; /* 절대 위치 지정 */
 	top: 50%; /* 부모 요소의 상단에서 50% 위치로 이동 */
 	left: 50%; /* 부모 요소의 왼쪽에서 50% 위치로 이동 */
