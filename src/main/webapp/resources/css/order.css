@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/* 배치 */
+.num_btn, .list_price {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: space-between;
+	padding: 30px 30px 0px 30px;
+}
+
+.num_btn>div, .list_price>div {
+	width: 45%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	text-align: center;
+	background-color: white;
+	border-radius: 6px;
+}
+
+.num_btn {
+	height: 60px;
+}
+
+.list_price {
+	height: 640px;
+}
+
+/* 테이블 번호 */
+.table {
+	/* 가운데 정렬 */
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: end;
+	align-content: center;
+	align-items: center;
+	gap: 5px;
+	font-size: 35px;
+	letter-spacing: 6px;
+	font-weight: bold;
+	font-size: 35px;
+}
+
+.table>select {
+	font-size: 20px;
+	letter-spacing: 6px;
+	font-weight: bold;
+	width: 100px;
+	height: 40px;
+	border: 2px dashed #ccc;
+	border-radius: 10px;
+	margin-right: 140px;
+	text-align-last: center;
+}
+
+/* 주문하기 */
+.btn>button {
+	width: 482px;
+	height: 42px;
+	border: 2px dashed #ccc;
+	border-radius: 10px;
+	font-size: 20px;
+	letter-spacing: 6px;
+	font-weight: bold;
+}
+
+.btn>button:hover {
+	background-color: #FFC125;
+}
