@@ -66,3 +66,46 @@
 .btn>button:hover {
 	background-color: #FFC125;
 }
+
+/* 음식 목록 */
+.navigation {
+	overflow: hidden;
+	overflow-x: auto;
+	white-space: nowrap;
+	border-radius: 6px;
+}
+
+.navigation a {
+	display: inline-block;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+	border-radius: 6px;
+	border: 2px dashed #ccc;
+	color: black;
+}
+
+.navigation a:hover {
+	background-color: #ccc;
+	color: black;
+}
+
+.active {
+	background-color: #FFC125;
+}
+
+.list_container {
+	margin-top: 20px;
+}
+
+.list_container>ul {
+	padding: 0;
+}
+
+.list_item {
+	margin: 5px 0;
+	padding: 10px;
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+	list-style-type: none;
+}	
