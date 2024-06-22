@@ -1,7 +1,8 @@
 /**
- * 
+ *
  */
 
+/* 메뉴 함수 */
 function showList(listId) {
 	// 모든 리스트 숨기기
 	let lists = document.getElementsByClassName('list_container');
@@ -20,36 +21,130 @@ function showList(listId) {
 	event.currentTarget.classList.add('active'); // 선택된 링크에 active 클래스 추가
 }
 
+/* 주문목록으로 이동 함수 */
 function move_to_cart(element) {
-	console.log("hello")
-	// 각 li 요소를 선택합니다.
-	/*
-		let listItems = document.querySelectorAll('.list-item');
-		let list_items = document.getElementsByClassName('list-item');
-	
-		for (let i = 0; i < list_items; i++) {
-			lists[i].textContent
-			console.log(lists[i].textContent)
-		}
-		console.log("all = " + listItems.textContent)
-		console.log("class = " + list_items.textContent)*/
 
+	// 선택한 음식 이름 및 가격
 	let text = element.textContent;
-	console.log(`Move '${text}' to cart`);
+
+	// 정규 표현식으로 한글 추출 => 음식 이름
+	let regex_kor = /[가-힣]+/g;
+	let kor_match = text.match(regex_kor);
+	let food_name_kor = kor_match.join('');
+
+	// $ 뒤에 숫자 추출 => 가격
+	let regex_dollar = /\$(\d+)/;
+	let food_price = text.match(regex_dollar)[1];
+
+
+	let new_item = { name: food_name_kor, price: food_price };
+
+	// 기존에 음식이 선택된적 있는지 확인하는 함수 호출
+	let cnt_result = for_cnt(new_item.name);
+
+	console.log(cnt_result);
+	if (cnt_result == "true") {
+		console.log("이미 존재하니깐 갯수만 +1 하세요")
+
+	let name_class = document.getElementsByClassName("name_cell_class");
+	let cnt_class = document.getElementsByClassName("cnt_cell_class");
+
+	// 텍스트를 저장할 배열 선언 및 저장
+	let all_names = [];
+	for (let i = 0; i < name_class.length; i++) {
+		let text = name_class[i].textContent;
+		all_names.push(text);
+	}
+	let all_cnts = [];
+	for (let i = 0; i < cnt_class.length; i++) {
+		let text = cnt_class[i].textContent;
+		all_cnts.push(text);
+	}
+	
+	console.log("===========");
+	console.log(all_names); // 전체 이름
+	console.log(all_cnts); // 전체 갯수
+	console.log("===========");
+
+	// 해당 음식명이 저장된 배열의 인덱스 번호
+	let plus_index = all_names.indexOf(new_item.name);
+	console.log("인덱스 번호 : "+plus_index); 
+
+	// 해당 인덱스 번호의 갯수
+	let before_cnt = all_cnts[plus_index];
+	console.log(`${new_item.name}의 갯수 = `+before_cnt);
+	
+
+	// 문자열을 숫자로 변환 후 +1
+
+	let num_cnt = parseInt(before_cnt, 10); 
+let after_cnt = num_cnt + 1;
+
+console.log(`추가된 ${new_item.name}의 갯수 = `+after_cnt);
+
+// 배열에 +1된 갯수로 내용 변경
+cnt_class[plus_index].textContent = after_cnt;
+
+console.log(cnt_class[plus_index].textContent)
+
+	} else {
+		console.log("없으니깐 전체 등록 하세요")
+		let tbody = document.getElementById("cart_list_body");
+
+		let row = document.createElement('tr');
+
+		// 음식 이름
+		let name_cell = document.createElement('td');
+		name_cell.textContent = new_item.name;
+		name_cell.className = 'name_cell_class';
+		row.appendChild(name_cell);
+
+		// 갯수
+		let cnt_cell = document.createElement('td');
+		cnt_cell.className = 'cnt_cell_class';
+		cnt_cell.textContent = "1";
+		row.appendChild(cnt_cell);
+
+
+		// 가격
+		let price_cell = document.createElement('td');
+		price_cell.textContent = new_item.price;
+		row.appendChild(price_cell);
+
+		// 삭제
+		let del_cell = document.createElement('td');
+		del_cell.textContent = "삭제";
+		row.appendChild(del_cell);
+
+		tbody.appendChild(row);
+	}
+
 }
 
+/* 기존에 음식이 선택된적 있는지 확인하는 함수 */
+function for_cnt(chk) {
+	let name_class = document.getElementsByClassName("name_cell_class");
 
-/*
-// 선택된 요소가 유효한지 확인 후에 처리합니다.
-if (listItems.length > 0) {
-	// 유효한 경우에만 forEach를 사용하여 클릭 이벤트 리스너를 추가합니다.
-	listItems.forEach(item => {
-		item.addEventListener('click', function() {
-			// 클릭된 li 요소의 텍스트를 가져와서 콘솔에 출력합니다.
-			console.log(this.textContent);
-		});
-	});
-} else {
-	console.error('No list items found.');
-}*/
+	// 텍스트를 저장할 배열 선언 및 저장
+	let all_names = [];
+	for (let i = 0; i < name_class.length; i++) {
+		let text = name_class[i].textContent;
+		all_names.push(text);
+	}
+	// console.log(all_names); // 전체 
+	// console.log(chk) // 일치여부 확인 할 텍스트
+
+	let index = all_names.indexOf(chk);
+
+	// 해당 텍스트의 기존에 선택된 갯수 가져오기
+	if (index !== -1) {
+		console.log(`${chk} 는 ${index}에 존재`);
+		// 존재하는 경우
+		return "true";
+	} else {
+		console.log(`${chk} 없음`);
+		// 없는 경우
+		return "false";
+	}
+}
 
