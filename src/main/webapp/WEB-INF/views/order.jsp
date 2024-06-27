@@ -15,7 +15,7 @@
 	<div class="main_content">
 		<div class="num_btn">
 			<div class="table">
-				Table<select>
+				Table<select class="cursor-effect">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -189,14 +189,14 @@
 
 			</div>
 			<div>
-				<div>
-					<h3>주문내역</h3>
-					<table id="cart_list" border="1">
+				<h3 id="cart_title">주문내역</h3>
+				<div id="cart_list_div">
+					<table id="cart_list">
 						<thead>
 							<tr>
 								<th id="cart_food">음식명</th>
 								<th id="cart_cnt">갯수</th>
-								<th id="cart_price">가격</th>
+								<th id="cart_price">가격($)</th>
 								<th id="cart_del"></th>
 							</tr>
 						</thead>
@@ -205,7 +205,9 @@
 						</tbody>
 					</table>
 				</div>
-				<div>총액</div>
+				<div id="total_price_div">
+					총액($) : <input type="text" id="total_price">
+				</div>
 			</div>
 		</div>
 	</div>

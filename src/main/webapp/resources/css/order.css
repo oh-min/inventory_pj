@@ -34,7 +34,6 @@
 	align-content: center;
 	align-items: center;
 	gap: 5px;
-	font-size: 35px;
 	letter-spacing: 6px;
 	font-weight: bold;
 	font-size: 35px;
@@ -54,7 +53,7 @@
 
 /* 주문하기 */
 .btn>button {
-	width: 482px;
+	width: 85%;
 	height: 42px;
 	border: 2px dashed #ccc;
 	border-radius: 10px;
@@ -113,11 +112,71 @@
 }
 
 /* 주문 목록 */
+#cart_title {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 25px;
+	letter-spacing: 6px;
+	font-weight: bold;
+}
+
+#cart_list_div {
+	max-height: 500px;
+	min-height: 500px;
+	overflow-y: auto;
+}
+
 #cart_list {
 	width: 100%;
 }
 
+#cart_list thead {
+	background-color: #f9f9f9;
+	position: sticky; /* 상단고 */
+	top: 0;
+	z-index: 1;
+	height: 30px;
+}
+
+#cart_list_body td {
+	height: 25px;
+}
+
+#cart_food {
+	width: 50%;
+}
+
+#cart_cnt {
+	width: 20%;
+}
+
 #cart_del {
-	width: 30px;
-	'
+	width: 10%;
+}
+
+/* 총액 */
+#total_price_div {
+	margin-top: 10px;
+	border: dashed 2px #ccc;
+}
+
+#total_price {
+	height: 30px;
+	width: 80px;
+	border: none;
+	text-align: center;
+}
+
+#total_price_div, #total_price{
+	font-size: 18px;
+	letter-spacing: 6px;
+}
+/* 커서 */
+.cursor-effect:hover {
+	border-color: #FFC125;
+	background-color: #f9f9f9;
+}
+.list_item:hover {
+	border-color: #FFC125;
+	background-color: #f9f9f9;
 }
