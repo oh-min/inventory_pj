@@ -1,7 +1,6 @@
 /**
  *
  */
-
 /* 메뉴 함수 */
 function showList(listId) {
 	// 모든 리스트 숨기기
@@ -123,6 +122,8 @@ function move_to_cart(element) {
 		let name_cell = document.createElement('td');
 		name_cell.textContent = new_item.name;
 		name_cell.className = 'name_cell_class';
+		name_cell.setAttribute('name', 'food');
+		console.log(name_cell);
 		row.appendChild(name_cell);
 
 		// 갯수
@@ -185,4 +186,138 @@ function for_cnt(chk) {
 		// 없는 경우
 		return "false";
 	}
+}
+
+/* order submit */
+function order_form() {
+	// ajax를 통해 보내야하는 데이터 배열
+
+	// 주문번호, 주문시간, 테이블 번호, 총 가격, 음식 이름, 갯수, 주문한 음식 1개 가격 * 갯수
+	let form = document.getElementById("order_form");
+
+	let order_num_str; // 주문번호 = 년월일6글자 + 테이블번호 2글자 + 시간 2글자 + 분 2글자 ex) 240725021630
+	let regdate_str; // 주문시간
+	let table_num_str = document.getElementById("table_num").value; // 테이블 번호
+	let total_price_str = document.getElementById("total_price").value; // 총 가격
+	let name_class = document.getElementsByClassName("name_cell_class"); // 음식 이름
+	let food = [];
+	for (let i = 0; i < name_class.length; i++) {
+		let text = name_class[i].textContent;
+		food.push(text);
+	}
+	let cnt_class = document.getElementsByClassName("cnt_cell_class"); // 갯수
+	let cnt = [];
+	for (let i = 0; i < cnt_class.length; i++) {
+		let text = cnt_class[i].textContent;
+		cnt.push(text);
+	}
+	let price_class = document.getElementsByClassName("price_cell_class"); // 가격
+	let price = [];
+	for (let i = 0; i < price_class.length; i++) {
+		let text = price_class[i].textContent;
+		price.push(text);
+	}
+
+
+	// 현재 날짜 구하기
+	let today = new Date();
+	let today_y = today.getFullYear();
+	let today_m = today.getMonth() + 1;
+	let today_d = today.getDate();
+
+	// 한자리 수인 경우 앞에 0을 넣어 2자리로 맞추기
+	let today_y00 = ('' + today_y).slice(-2);
+	let today_m00 = ('00' + today_m).slice(-2);
+	let today_d00 = ('00' + today_d).slice(-2);
+
+
+
+	// 날짜를 비교하기 위해 년도/월/일 형식으로 변경하기
+	let today_ymd = today_y00 + today_m00 + today_d00;
+
+	// 현재시간
+	let hours = today.getHours();
+	let minutes = today.getMinutes();
+	let hours_00 = ('00' + hours).slice(-2);
+	let minutes_00 = ('00' + minutes).slice(-2);
+
+	let seconds = today.getSeconds();
+	let seconds_00 = ('00' + seconds).slice(-2);
+
+	// 주문시간 설정
+	regdate_str = today_y + "-" + today_m00 + "-" + today_d00 + " " + hours_00 + ":" + minutes_00 + ":" + seconds_00;
+
+	// 테이블 번호 2자리 맞추기
+	table_num_str = ('00' + table_num_str).slice(-2);
+
+	// 주문번호 설정
+	order_num_str = today_ymd + table_num_str + hours_00 + minutes_00;
+
+
+	// 주문 번호, 테이블 번호, 주문시간, 총 가격 배열로 반복
+	// console.log(name_class.length) // 반복해야할 횟수
+	let order_num = [];
+	for (let i = 0; i < name_class.length; i++) {
+		order_num.push(order_num_str);
+	}
+	let regdate = [];
+	for (let i = 0; i < name_class.length; i++) {
+		regdate.push(regdate_str);
+	}
+	let table_num = [];
+	for (let i = 0; i < name_class.length; i++) {
+		table_num.push(table_num_str);
+	}
+	let total_price = [];
+	for (let i = 0; i < name_class.length; i++) {
+		total_price.push(total_price_str);
+	}
+	console.log("주문번호" + order_num);
+	console.log("주문시간" + regdate);
+	console.log("테이블 번호" + table_num);
+	console.log("총 가격" + total_price);
+	console.log("음식 이름" + food);
+	console.log("갯수" + cnt);
+	console.log("가격" + price);
+
+	let formdata = {
+		"order_num": order_num,
+		"regdate": regdate,
+		"table_num": table_num,
+		"total_price": total_price,
+		"food": food,
+		"cnt": cnt,
+		"price": price
+	};
+	console.log(formdata)
+	console.log(JSON.stringify(formdata))
+
+	$.ajax({
+		data: JSON.stringify(formdata),
+		url: "/order",
+		type: "POST",
+		contentType: "application/json; charset=UTF-8",
+		dataType: "json",
+		traditional: true,	// ajax 배열 넘기기 옵션
+		success: function(data) {
+			console.log(data)
+			if (data.result === "success") {
+				console.log(JSON.stringify(data, null, 2));
+				alert("wait")
+				window.location.href = "/order"; // 리다이렉트
+			} else {
+				console.log(JSON.stringify(data, null, 2));
+				console.log("전송 실패: " + data.result);
+				alert("전송 실패: " + data.result);
+
+			}
+		},
+		error: function(e) {
+			alert("error : "+e);
+		}
+	});
+
+
+
+
 }
