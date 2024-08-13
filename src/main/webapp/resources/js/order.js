@@ -272,50 +272,36 @@ function order_form() {
 	for (let i = 0; i < name_class.length; i++) {
 		total_price.push(total_price_str);
 	}
-	console.log("주문번호" + order_num);
-	console.log("주문시간" + regdate);
-	console.log("테이블 번호" + table_num);
-	console.log("총 가격" + total_price);
-	console.log("음식 이름" + food);
-	console.log("갯수" + cnt);
-	console.log("가격" + price);
-
-	let formdata = {
-		"order_num": order_num,
-		"regdate": regdate,
-		"table_num": table_num,
-		"total_price": total_price,
-		"food": food,
-		"cnt": cnt,
-		"price": price
-	};
-	console.log(formdata)
-	console.log(JSON.stringify(formdata))
+	console.log(Array.isArray(order_num) + " 주문번호" + order_num);
+	console.log(Array.isArray(regdate) + " 주문시간" + regdate);
+	console.log(Array.isArray(table_num) + " 테이블 번호" + table_num);
+	console.log(Array.isArray(total_price) + " 총 가격" + total_price);
+	console.log(Array.isArray(food) + " 음식 이름" + food);
+	console.log(Array.isArray(cnt) + " 갯수" + cnt);
+	console.log(Array.isArray(price) + " 가격" + price);
 
 	$.ajax({
-		data: JSON.stringify(formdata),
 		url: "/order",
-		type: "POST",
-		contentType: "application/json; charset=UTF-8",
-		dataType: "json",
-		traditional: true,	// ajax 배열 넘기기 옵션
-		success: function(data) {
-			console.log(data)
-			if (data.result === "success") {
-				console.log(JSON.stringify(data, null, 2));
-				alert("wait")
-				window.location.href = "/order"; // 리다이렉트
-			} else {
-				console.log(JSON.stringify(data, null, 2));
-				console.log("전송 실패: " + data.result);
-				alert("전송 실패: " + data.result);
-
-			}
+		type: "post",
+		traditional: true,	// ajax 배열 넘기기 옵션!
+		data: {
+			"order_num": order_num,
+			"regdate": regdate,
+			"table_num": table_num,
+			"total_price": total_price,
+			"food": food,
+			"cnt": cnt,
+			"price": price
 		},
-		error: function(e) {
-			alert("error : "+e);
+		dataType: "json",
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(request, status, error) {
+			alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
 		}
 	});
+	alert("wait");
 
 
 

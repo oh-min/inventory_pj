@@ -25,37 +25,42 @@ public class MemberController {
 
 		// service로 넘긴 id, pw를 이용하여 select되어 넘어온 값을 session에 저장
 		session.setAttribute("user", ms.signin(mvo));
+		session.setMaxInactiveInterval(60 * 60); // session을 60분 동안 유지 (무한대 : -1)
+
 		try {
-			// 회원 정보가 있는 경우 
+			// 회원 정보가 있는 경우
 			if (ms.signin(mvo) != null) {
 				System.out.println("디비에 저장된 유저이름 : " + ms.signin(mvo).getUsername());
 				System.out.println("디비에 저장된 비밀번호 : " + ms.signin(mvo).getPw());
 				// 유저이름과 비밀번호 모두 일치하는 경우
 				if (mvo.getUsername().equals(ms.signin(mvo).getUsername()) && mvo.getPw().equals(ms.signin(mvo).getPw())) {
 					System.out.println("로그인 성공");
+
+					System.out.println(session.getAttribute("user"));
+
 					return "redirect:/";
 				} else if (mvo.getUsername().equals(ms.signin(mvo).getUsername())) { // 유저이름은 일치, 비밀번호 불일치하는 경우
 					try {
-						response.setContentType("text/html; charset=utf-8"); 
+						response.setContentType("text/html; charset=utf-8");
 						PrintWriter w = response.getWriter();
 						w.write("<script>alert('비밀번호를 잘못 입력했습니다.');location.href='/';</script>");
-						w.flush(); 
-						w.close(); 
-						return "/home"; 
+						w.flush();
+						w.close();
+						return "/home";
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
 			} else {
-				// 회원 정보가 null인 경우 
-				System.out.println("회원 정보가 없습니다."); 
+				// 회원 정보가 null인 경우
+				System.out.println("회원 정보가 없습니다.");
 				try {
-					response.setContentType("text/html; charset=utf-8"); 
+					response.setContentType("text/html; charset=utf-8");
 					PrintWriter w = response.getWriter();
 					w.write("<script>alert('회원 정보가 업습니다.');location.href='/';</script>");
-					w.flush(); 
-					w.close(); 
-					return "/home"; 
+					w.flush();
+					w.close();
+					return "/home";
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -65,6 +70,13 @@ public class MemberController {
 			e.printStackTrace();
 		}
 
+		return "redirect:/";
+	}
+
+	/* 로그아웃 */
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate(); // 로그인 무효화
 		return "redirect:/";
 	}
 

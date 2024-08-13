@@ -6,12 +6,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.inventory_pj.model.OrderVO;
 import org.inventory_pj.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -34,12 +34,52 @@ public class OrderController {
 
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		// ajax를 통해 넘어온 배열 데이터 선언
-		String[] arrStr = req.getParameterValues("arrStr");
+
+		String[] order_num = req.getParameterValues("order_num");
+		String[] regdate = req.getParameterValues("regdate");
+		String[] table_num = req.getParameterValues("table_num");
+		String[] total_price = req.getParameterValues("total_price");
+		String[] food = req.getParameterValues("food");
+		String[] cnt = req.getParameterValues("cnt");
+		String[] price = req.getParameterValues("price");
+
 		try {
-			if (arrStr != null && arrStr.length > 0) {
-				for (int i = 0; i < arrStr.length; i++) {
-					System.out.println("ajax traditional result : " + i + " : " + arrStr[i]);
+			if (order_num != null && order_num.length > 0) {
+				for (int i = 0; i < order_num.length; i++) {
+					System.out.println("주문 번호 : " + i + " : " + order_num[i]);
+					System.out.println("주문 시간 : " + i + " : " + regdate[i]);
+					System.out.println("테이블 번호 : " + i + " : " + table_num[i]);
+					System.out.println("총 가격 : " + i + " : " + total_price[i]);
+					System.out.println("음식 : " + i + " : " + food[i]);
+					System.out.println("갯수 : " + i + " : " + cnt[i]);
+					System.out.println("가격 : " + i + " : " + price[i]);
+
+					// food detail 개별 주문 목록(주문 번호, 테이블 번호, 음식, 갯수, 가격)
+					OrderVO ovo2 = new OrderVO();
+
+					ovo2.setOrder_num(order_num[i]);
+					ovo2.setTable_num(table_num[i]);
+					ovo2.setFood(food[i]);
+					ovo2.setCnt(cnt[i]);
+					ovo2.setPrice(price[i]);
+
+					System.out.println(ovo2);
+
+					os.submit_order(ovo2); // OrderVO 객체를 서비스로 전달
+
 				}
+				// order list 총 주문 목록(주문 번호, 주문 시간, 테이블 번호, 총 가격)
+				OrderVO ovo1 = new OrderVO();
+
+				ovo1.setOrder_num(order_num[0]);
+				ovo1.setRegdate(regdate[0]);
+				ovo1.setTable_num(table_num[0]);
+				ovo1.setTotal_price(total_price[0]);
+
+				System.out.println(ovo1);
+
+				os.submit_order_total(ovo1); // OrderVO 객체를 서비스로 전달
+
 				resultMap.put("result", "success");
 			} else {
 				resultMap.put("result", "false");
@@ -50,104 +90,5 @@ public class OrderController {
 		return resultMap;
 	}
 
-	/*
-	 * @RequestMapping(value = "/order", method = { RequestMethod.POST }) public
-	 * void submit_order(@RequestParam Map<String, Object> map) {
-	 * System.out.println(map); System.out.println((String) map.get("order_num"));
-	 * // Object여서 형 변환
-	 * 
-	 * }
-	 */
-
-	/*
-	 * @ResponseBody
-	 * 
-	 * @RequestMapping(value = "/order", method = RequestMethod.POST) public
-	 * Map<String, Object> submit_order2(HttpSession session, HttpServletRequest
-	 * req) throws Exception { Map<String, Object> resultMap = new HashMap<String,
-	 * Object>();
-	 * 
-	 * Enumeration<String> parameterNames = req.getParameterNames(); String
-	 * param_name; String[] param_values;
-	 * 
-	 * while (parameterNames.hasMoreElements()) { param_name =
-	 * parameterNames.nextElement(); param_values =
-	 * req.getParameterValues(param_name); System.out.println(param_name + ": " +
-	 * Arrays.toString(param_values));
-	 * 
-	 * } return null; };
-	 */
-
-	/*
-	 * @ResponseBody
-	 * 
-	 * @RequestMapping(value = "/order", method = RequestMethod.POST) public
-	 * Map<String, Object> submit_order2(HttpSession session, HttpServletRequest
-	 * req) throws Exception { Map<String, Object> resultMap = new HashMap<String,
-	 * Object>();
-	 * 
-	 * Enumeration<String> parameterNames = req.getParameterNames();
-	 * 
-	 * String param_name; String[] param_values;
-	 * 
-	 * while (parameterNames.hasMoreElements()) { param_name =
-	 * parameterNames.nextElement(); param_values =
-	 * req.getParameterValues(param_name); System.out.println(param_name + ": " +
-	 * Arrays.toString(param_values));
-	 * 
-	 * }
-	 * 
-	 * // String[] order_num_str = req.getParameterValues("order_num_str");
-	 * //System.out.println("111order_num_str: " + Arrays.toString(order_num_str));
-	 * 
-	 * // ajax를 통해 넘어온 배열 데이터 선언 // String[] regdate_str
-	 * =req.getParameterValues("regdate_str"); // String[] table_num_str
-	 * =req.getParameterValues("table_num_str"); // String[] total_price_str
-	 * =req.getParameterValues("total_price_str"); // String[] food_str
-	 * =req.getParameterValues("food_str"); // String[] cnt_str
-	 * =req.getParameterValues("cnt_str"); // String[] price_str
-	 * =req.getParameterValues("price_str");
-	 * 
-	 * // System.out.println("2order_num_str: " + Arrays.toString(order_num_str));
-	 * // System.out.println("2regdate_str: " + Arrays.toString(regdate_str));
-	 * //System.out.println("table_num_str: " + Arrays.toString(table_num_str)); //
-	 * System.out.println("total_price_str: " + Arrays.toString(total_price_str));
-	 * // System.out.println("food_str: " + Arrays.toString(food_str));
-	 * //System.out.println("cnt_str: " + Arrays.toString(cnt_str));
-	 * //System.out.println("price_str: " + Arrays.toString(price_str));
-	 * 
-	 * // String chk = Arrays.toString(order_num_str); //
-	 * System.out.println("====="+ chk); // System.out.println("******" +
-	 * order_num_str.length);
-	 * 
-	 * // int len = order_num_str.length; // System.out.println(len + " 번 반복");
-	 * //받아온 데이터 이름, 값 확인
-	 * 
-	 * 
-	 * //try { if (len > 0) { for (int i = 0; i < len; i++) { // OrderVO 객체 생성 for
-	 * food_detail // OrderVO ovo = new OrderVO();
-	 * 
-	 * // 각 필드에 데이터 설정 // ovo.setOrder_num(order_num_str[i]); //
-	 * ovo.setTable_num(table_num_str[i]); // ovo.setFood(food_str[i]); //
-	 * ovo.setCnt(cnt_str[i]); ovo.setPrice(price_str[i]);
-	 * 
-	 * // os.submit_order(ovo); // OrderVO 객체를 서비스로 전달
-	 * 
-	 * // OrderVO 객체 생성 for order list // OrderVO ovo2 = new OrderVO();
-	 * 
-	 * // ovo2.setOrder_num(order_num_str[0]); //
-	 * ovo2.setTable_num(table_num_str[0]); // ovo2.setRegdate(regdate_str[0]); //
-	 * ovo2.setTotal_price(total_price_str[0]);
-	 * 
-	 * // os.submit_order_total(ovo2); // OrderVO 객체를 서비스로 전달
-	 * 
-	 * // resultMap.put("result", "success"); } else { resultMap.put("result", //
-	 * "fault");
-	 * 
-	 * // } } catch (Exception e) { e.printStackTrace(); resultMap.put("result", //
-	 * "error"); }
-	 * 
-	 * return null; // JSON 응답으로 반환 } } };
-	 */
 
 }

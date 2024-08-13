@@ -3,5 +3,7 @@
  */
 
 /* 로그인 버튼 클릭 */
-function submit_form(){
+function submit_form() {
 }
+
+/* 로그아웃 버튼 클릭 */

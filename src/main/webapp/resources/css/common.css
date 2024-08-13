@@ -6,7 +6,7 @@
 	justify-content: space-between;
 }
 
-/* 왼쪽 요소에 대한 스타일 */
+/* 왼쪽 요소(로고)에 대한 스타일 */
 .left-content {
 	font-size: 37px;
 	letter-spacing: 6px;
@@ -18,7 +18,12 @@
 	align-items: center;
 }
 
-/* 오른쪽 요소에 대한 스타일 */
+.left-content>a {
+	color: black;
+	text-decoration-line: none;
+}
+
+/* 오른쪽 요소(로그인 정보)에 대한 스타일 */
 .right-content {
 	font-size: 35px;
 	letter-spacing: 6px;
@@ -32,7 +37,26 @@
 
 .main_content {
 	background-color: #E9ECEF;
-	min-height: 790px;
+	min-height: 780px;
 	position: relative; /* 위치 지정을 위한 기준으로 설정 */
 }
 
+.footer_content {
+	height: 10px;
+}
+
+/* 로그아웃 버튼 */
+.logout {
+	height: 30px;
+	font-size: 14px;
+	background-color: white;
+	border: 2px dashed #ccc;
+	border-radius: 8px;
+	color: #ccc;
+}
+
+.logout:hover {
+	background-color: #FFC125;
+	border: 2px dashed #FFC125;
+	color: black;
+}
