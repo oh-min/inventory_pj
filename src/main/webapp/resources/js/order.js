@@ -296,12 +296,13 @@ function order_form() {
 		dataType: "json",
 		success: function(data) {
 			console.log(data);
+			window.location.href = "/order";
+
 		},
 		error: function(request, status, error) {
 			alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
 		}
 	});
-	alert("wait");
 
 
 

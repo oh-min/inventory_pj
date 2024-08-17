@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.history_box {
+	width: 900px;
+	height: 780px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.content_box {
+	width: 100%;
+	height: 670px;
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	position: absolute;
+	margin-top: 20px;
+	border: 1px solid #ccc;
+}
+
+tr, td, th {
+	border: solid #E9ECEF 1px;
+	border-left: none;
+	border-right: none;
+}
+
+th {
+	background-color: #f9f9f9;
+}
+
+.content_box>table {
+	background-color: white;
+	width: 93%;
+	height: 640px;
+	border-collapse: collapse;
+	margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.paging_box {
+	width: 100%;
+	height: 45px;
+	background-color: white;
+	border: 1px solid #ccc;
+	position: absolute;
+	bottom: 30px;
+	border-radius: 6px;
+}
