@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,6 @@
 	<div class="main_content">
 		<div class="history_box">
 			<div class="content_box">
-			${history_list}
 				<table>
 					<tr>
 						<th>주문 번호</th>
@@ -24,100 +25,34 @@
 						<th>테이블 번호</th>
 						<th>주문 시간</th>
 					</tr>
-					<tr>
-						<td>1111111111111</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>22222222222</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>3333333333</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>4444444444444</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>5555555555</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>666666666666</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>77777777777</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>8888888888</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>99999999999999</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>1010101010101010</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>1111111111111111</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>12121212121212</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>13131313131313</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>14141414141414</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
-					<tr>
-						<td>15151515151515</td>
-						<td>43</td>
-						<td>2</td>
-						<td>2023-12-02 10:30:23</td>
-					</tr>
+					<c:forEach items="${history_list}" var="history_list">
+						<tr>
+							<td>${history_list.order_num}</td>
+							<td>${history_list.total_price}</td>
+							<td>${history_list.table_num}</td>
+							<td>${history_list.regdate}</td>
+						</tr>
+					</c:forEach>
+
 
 				</table>
 			</div>
-			<div class="paging_box">1 2 3 4 5 6 7 8 9</div>
+			<div class="paging_box">
+				<c:if test="${paging.prev}">
+					<a href="/order_history?page_num=${paging.start_page-1}&amount=${paging.cvo.amount}">이전</a>
+				</c:if>
+			
+				<c:forEach begin="${paging.start_page}" end="${paging.end_page}" var="num">
+					<a href="/order_history?page_num=${num}&amount=${paging.cvo.amount}">${num}</a>
+				</c:forEach>
+				
+				<c:if test="${paging.next}">
+					<a href="/order_history?page_num=${paging.end_page+1}&amount=${paging.cvo.amount}">다음</a>
+				</c:if>
+				
+				
+				
+			</div>
 		</div>
 
 	</div>
