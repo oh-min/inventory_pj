@@ -20,8 +20,8 @@ public class PageVO {
 		this.total = total;
 
 		// 시작번호, 끝번호, 이전버튼, 다음버튼 계산
-		this.end_page = (int) (Math.ceil(cvo.getPage_num() / 10.0)) * 15; // 끝번호
-		this.start_page = this.end_page - 14; // 시작번호
+		this.end_page = (int) (Math.ceil(cvo.getPage_num() / 10.0)) * 10; // 끝번호
+		this.start_page = this.end_page - 9; // 시작번호
 		int realEnd = (int) (Math.ceil((total * 1.0) / cvo.getAmount())); // 마지막 페이지 번호
 
 		// 마지막 페이지 번호 < 끝번호 인 경우

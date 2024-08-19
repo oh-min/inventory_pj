@@ -12,7 +12,7 @@ public class CriteriaVO {
 	private int amount; // 한 페이지 당 게시물 갯수
 
 	public CriteriaVO() {
-		this(1, 15);
+		this(1, 10);
 	}
 
 	public CriteriaVO(int page_num, int amount) {

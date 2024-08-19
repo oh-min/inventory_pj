@@ -192,9 +192,6 @@ function for_cnt(chk) {
 function order_form() {
 	// ajax를 통해 보내야하는 데이터 배열
 
-	// 주문번호, 주문시간, 테이블 번호, 총 가격, 음식 이름, 갯수, 주문한 음식 1개 가격 * 갯수
-	let form = document.getElementById("order_form");
-
 	let order_num_str; // 주문번호 = 년월일6글자 + 테이블번호 2글자 + 시간 2글자 + 분 2글자 ex) 240725021630
 	let regdate_str; // 주문시간
 	let table_num_str = document.getElementById("table_num").value; // 테이블 번호
@@ -251,7 +248,7 @@ function order_form() {
 	table_num_str = ('00' + table_num_str).slice(-2);
 
 	// 주문번호 설정
-	order_num_str = today_ymd + table_num_str + hours_00 + minutes_00;
+	order_num_str = today_ymd + table_num_str + hours_00 + minutes_00 + seconds_00;
 
 
 	// 주문 번호, 테이블 번호, 주문시간, 총 가격 배열로 반복

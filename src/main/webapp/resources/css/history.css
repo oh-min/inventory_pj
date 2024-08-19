@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* order history list 전체 틀 */
 .history_box {
 	width: 900px;
 	height: 780px;
@@ -7,15 +8,26 @@
 	position: relative;
 }
 
-.content_box {
+/* 검색 부분 */
+.search_box {
 	width: 100%;
-	height: 670px;
+	height: 45px;
 	background-color: white;
 	border: 1px solid #ccc;
 	border-radius: 6px;
 	position: absolute;
 	margin-top: 20px;
+}
+
+/* 리스트 부분 */
+.content_box {
+	width: 100%;
+	height: 620px;
+	background-color: white;
 	border: 1px solid #ccc;
+	border-radius: 6px;
+	position: absolute;
+	margin-top: 75px;
 }
 
 tr, td, th {
@@ -26,12 +38,13 @@ tr, td, th {
 
 th {
 	background-color: #f9f9f9;
+	height: 50px;
 }
 
 .content_box>table {
 	background-color: white;
 	width: 93%;
-	height: 640px;
+	height: 590px;
 	border-collapse: collapse;
 	margin: 0 auto;
 	margin-top: 15px;
@@ -39,6 +52,7 @@ th {
 	text-align: center;
 }
 
+/* 페이징 부분 */
 .paging_box {
 	width: 100%;
 	height: 45px;
@@ -47,4 +61,56 @@ th {
 	position: absolute;
 	bottom: 30px;
 	border-radius: 6px;
+	display: flex;
+	justify-content: space-between; /* 또는 center, space-around 등으로 조절 가능 */
+}
+
+.prev_btn, .next_btn {
+	width: 100px;
+	height: 90%;
+	margin: 2px;
+	display: flex;
+	justify-content: center; /* 수평 가운데 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+}
+
+.paging_num {
+	width: 600px;
+	height: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center; /* 수평 가운데 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+}
+
+.prev_btn>a, .next_btn>a {
+	text-decoration: none;
+	font-size: 25px;
+	font-weight: 500;
+}
+
+.now_page {
+	color: #FFC125;
+}
+
+.nomal_num {
+	color: black;
+}
+
+.paging_num>a {
+	text-decoration: none;
+	margin: 0 auto;
+	font-size: 18px;
+}
+
+.prev_btn>a, .next_btn>a:link {
+	color: black;
+}
+
+.prev_btn>a, .next_btn>a:visited {
+	color: black;
+}
+
+.paging_num>a:hover {
+	color: #ccc;
 }
