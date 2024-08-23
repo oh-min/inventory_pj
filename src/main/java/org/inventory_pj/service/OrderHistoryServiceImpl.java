@@ -23,4 +23,10 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	public int total() {
 		return ohm.total();
 	};
+
+	// 디테일
+	public ArrayList<OrderVO> detail(OrderVO ovo) {
+		System.out.println("디테일 서비스 연결완료");
+		return ohm.detail(ovo);
+	};
 }

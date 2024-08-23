@@ -19,7 +19,12 @@
 	</select>
 
 	<select id="total" resultType="int">
-		select count(*) from orderlist;
+		select count(*) from orderlist
 	</select>
 
+
+	<select id="detail" resultType="org.inventory_pj.model.OrderVO">
+		select * from food_detail
+		where order_num = #{order_num}
+	</select>
 </mapper>

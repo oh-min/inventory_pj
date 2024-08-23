@@ -58,9 +58,9 @@ window.onload = function() {
 					<option id="six_m">6개월</option> */
 
 	/* 기간 선택 select */
-	let one_w = document.getElementById("one_w");
+	/*let one_w = document.getElementById("one_w");
 
 	function period(a) {
 		alert(a.value)
-	}
+	}*/
 }

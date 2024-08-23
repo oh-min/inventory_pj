@@ -192,7 +192,7 @@ function for_cnt(chk) {
 function order_form() {
 	// ajax를 통해 보내야하는 데이터 배열
 
-	let order_num_str; // 주문번호 = 년월일6글자 + 테이블번호 2글자 + 시간 2글자 + 분 2글자 ex) 240725021630
+	let order_num_str; // 주문번호 = 년월일6글자 + 테이블번호 2글자 + 시간 2글자 + 분 2글자 + 초 2글자 ex) 24072502163004
 	let regdate_str; // 주문시간
 	let table_num_str = document.getElementById("table_num").value; // 테이블 번호
 	let total_price_str = document.getElementById("total_price").value; // 총 가격

@@ -45,7 +45,7 @@
 					</tr>
 					<c:forEach items="${history_list}" var="history_list">
 						<tr>
-							<td>${history_list.order_num}</td>
+							<td><a href="/order_detail?order_num=${history_list.order_num}">${history_list.order_num}</a></td>
 							<td>${history_list.total_price}</td>
 							<td>${history_list.table_num}</td>
 							<td>${history_list.regdate}</td>

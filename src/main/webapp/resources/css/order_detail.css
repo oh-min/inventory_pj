@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* order detail list 전체 틀 */
+.detail_box {
+	width: 900px;
+	height: 780px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* 리스트 부분 */
+.content_box {
+	width: 100%;
+	height: 680px;
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	position: absolute;
+	margin-top: 20px;
+}
+

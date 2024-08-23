@@ -9,4 +9,5 @@ public interface OrderMapper {
 	
 	//	order list √— ¡÷πÆ ∏Ò∑œ
 	public void submit_order_total(OrderVO ovo);
+	
 }

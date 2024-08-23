@@ -11,4 +11,7 @@ public interface OrderHistoryService {
 
 	// 전체 건수
 	public int total();
+	
+	// 디테일
+	public ArrayList<OrderVO> detail(OrderVO ovo);
 }
