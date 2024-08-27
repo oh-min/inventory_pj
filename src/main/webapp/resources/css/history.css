@@ -52,6 +52,17 @@ th {
 	text-align: center;
 }
 
+.on>a {
+	color: black;
+	text-decoration: none;
+	margin: 0 auto;
+	font-size: 17px;
+	text-decoration: none;
+}
+
+.on>a:hover{
+	color: #FFC125;
+}
 /* 페이징 부분 */
 .paging_box {
 	width: 100%;

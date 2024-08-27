@@ -5,26 +5,32 @@
 
 <mapper namespace="org.inventory_pj.mapper.OrderHistoryMapper">
 
-	<select id="history_total_list" resultType="org.inventory_pj.model.OrderVO">
+	<select id="history_total_list" resultType="org.inventory_pj.model.Order_totalVO">
 		<!-- select * from orderlist -->
 		select *
 		from(
-		select @rownum:=@rownum+1 rownum, ol.*
-		from orderlist ol,(SELECT @rownum:=0) as tmp
+		select @rownum:=@rownum+1 rownum, ot.*
+		from order_total ot,(SELECT @rownum:=0) as tmp
 		order by order_num desc
-		) as orderlist
+		) as order_total
 		<![CDATA[
 		where rownum > (#{page_num}-1)*#{amount} and rownum <= #{page_num}*#{amount}
 		]]>
 	</select>
 
 	<select id="total" resultType="int">
-		select count(*) from orderlist
+		select count(*) from order_total
 	</select>
 
 
-	<select id="detail" resultType="org.inventory_pj.model.OrderVO">
-		select * from food_detail
+	<select id="detail" resultType="org.inventory_pj.model.Order_detailVO">
+		select * from order_detail
 		where order_num = #{order_num}
 	</select>
+
+	<select id="order_total" resultType="org.inventory_pj.model.Order_totalVO">
+		select * from order_total
+		where order_num = #{order_num}
+	</select>
+
 </mapper>

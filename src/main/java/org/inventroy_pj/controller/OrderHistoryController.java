@@ -1,7 +1,8 @@
 package org.inventroy_pj.controller;
 
 import org.inventory_pj.model.CriteriaVO;
-import org.inventory_pj.model.OrderVO;
+import org.inventory_pj.model.Order_detailVO;
+import org.inventory_pj.model.Order_totalVO;
 import org.inventory_pj.model.PageVO;
 import org.inventory_pj.service.OrderHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,13 +33,12 @@ public class OrderHistoryController {
 
 	/* 주문내역 디테일 팝업창 이동하기 */
 	@RequestMapping(value = "/order_detail", method = RequestMethod.GET)
-	public String order_detail(OrderVO ovo, Model model) {
+	public String order_detail(Order_detailVO odvo, Model model, Order_totalVO otvo) {
 		System.out.println("주문내역 디테일 팝업창 이동 컨트롤러 연결 성공");
 
-		ohs.detail(ovo);
+		model.addAttribute("detail", ohs.detail(odvo));
+		model.addAttribute("order_total",ohs.order_total(otvo));
 		
-		model.addAttribute("detail",ohs.detail(ovo));
-
 		return "/order_detail";
 	}
 }

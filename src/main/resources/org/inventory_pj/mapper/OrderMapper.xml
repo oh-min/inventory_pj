@@ -7,13 +7,13 @@
 
 	<!-- food detail 개별 주문 목록 -->
 	<insert id="submit_order">
-		insert into food_detail(order_num, table_num, food, cnt, price) values
+		insert into order_detail(order_num, table_num, food, cnt, price) values
 		(#{order_num},#{table_num},#{food},#{cnt},#{price});
 	</insert>
 
 	<!-- order list 총 주문 목록 -->
 	<insert id="submit_order_total">
-		insert into orderlist(order_num, regdate, table_num, total_price) values
+		insert into order_total(order_num, regdate, table_num, total_price) values
 		(#{order_num},#{regdate},#{table_num},#{total_price});
 	</insert>
 </mapper>

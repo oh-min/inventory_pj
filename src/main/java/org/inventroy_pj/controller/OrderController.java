@@ -6,7 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.inventory_pj.model.OrderVO;
+import org.inventory_pj.model.Order_detailVO;
+import org.inventory_pj.model.Order_totalVO;
 import org.inventory_pj.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,30 +56,30 @@ public class OrderController {
 					System.out.println("가격 : " + i + " : " + price[i]);
 
 					// food detail 개별 주문 목록(주문 번호, 테이블 번호, 음식, 갯수, 가격)
-					OrderVO ovo2 = new OrderVO();
+					Order_detailVO odvo = new Order_detailVO();
 
-					ovo2.setOrder_num(order_num[i]);
-					ovo2.setTable_num(table_num[i]);
-					ovo2.setFood(food[i]);
-					ovo2.setCnt(cnt[i]);
-					ovo2.setPrice(price[i]);
+					odvo.setOrder_num(order_num[i]);
+					odvo.setTable_num(table_num[i]);
+					odvo.setFood(food[i]);
+					odvo.setCnt(cnt[i]);
+					odvo.setPrice(price[i]);
 
-					System.out.println(ovo2);
+					System.out.println(odvo);
 
-					os.submit_order(ovo2); // OrderVO 객체를 서비스로 전달
+					os.submit_order(odvo); // OrderVO 객체를 서비스로 전달
 
 				}
 				// order list 총 주문 목록(주문 번호, 주문 시간, 테이블 번호, 총 가격)
-				OrderVO ovo1 = new OrderVO();
+				Order_totalVO otvo = new Order_totalVO();
 
-				ovo1.setOrder_num(order_num[0]);
-				ovo1.setRegdate(regdate[0]);
-				ovo1.setTable_num(table_num[0]);
-				ovo1.setTotal_price(total_price[0]);
+				otvo.setOrder_num(order_num[0]);
+				otvo.setRegdate(regdate[0]);
+				otvo.setTable_num(table_num[0]);
+				otvo.setTotal_price(total_price[0]);
 
-				System.out.println(ovo1);
+				System.out.println(otvo);
 
-				os.submit_order_total(ovo1); // OrderVO 객체를 서비스로 전달
+				os.submit_order_total(otvo); // OrderVO 객체를 서비스로 전달
 
 				resultMap.put("result", "success");
 			} else {

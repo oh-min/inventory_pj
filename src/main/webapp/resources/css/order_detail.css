@@ -11,11 +11,60 @@
 /* 리스트 부분 */
 .content_box {
 	width: 100%;
-	height: 680px;
+	height: 675px;
 	background-color: white;
 	border: 1px solid #ccc;
 	border-radius: 6px;
 	position: absolute;
 	margin-top: 20px;
+	overflow: auto;
 }
 
+.content_box>table {
+	width: 93%;
+	border-collapse: collapse;
+	margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+	max-height: 630px;
+}
+
+tr {
+	height: 50px;
+}
+
+tr, td {
+	border: 1px solid #ccc;
+}
+
+#table_num {
+	width: 50%;
+}
+
+#cnt {
+	width: 25%;
+}
+
+/* 뒤로가기 버튼 */
+.back_box {
+	width: 100%;
+	height: 50px;
+	position: absolute;
+	bottom: 20px;
+	display: flex;
+	justify-content: space-between; /* 또는 center, space-around 등으로 조절 가능 */
+}
+
+#back_btn {
+	width: 100px;
+	height: 100%;
+	margin: 0 auto;
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+#back_btn:hover {
+	background-color : #FFC125;
+}
