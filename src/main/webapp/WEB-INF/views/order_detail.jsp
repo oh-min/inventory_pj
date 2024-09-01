@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/order_detail.css" />
+<script src="/resources/js/order_detail.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <title>Insert title here</title>
 </head>
@@ -20,7 +21,7 @@
 			<div class="content_box">
 				<table border="1">
 					<tr>
-						<td colspan="4">${order_total[0].order_num}</td>
+						<td colspan="4">주문 번호 : ${order_total[0].order_num}</td>
 					</tr>
 					<tr>
 						<td colspan="2" id="table_num">T ${order_total[0].table_num}</td>
@@ -44,7 +45,7 @@
 				</table>
 			</div>
 			<div class="back_box">
-				<button id="back_btn">목록으로</button>
+				<button id="back_btn" onclick="go_back()">목록으로</button>
 			</div>
 		</div>
 	</div>

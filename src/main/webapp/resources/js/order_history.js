@@ -51,16 +51,32 @@ window.onload = function() {
 		$('#end_date').datepicker('setDate', 'today');
 	});
 
-	/* <option>전체</option>
-					<option id="one_w">1주일</option>
-					<option id="one_m">1개월</option>
-					<option id="three_m">3개월</option>
-					<option id="six_m">6개월</option> */
+	/* 검색 결과 유지 */
+//	try {
+		let urlParams = new URL(location.href).searchParams;
+		let url_start_date = urlParams.get('start_date'); // url 주소에서 start_date 값 추출
+		let url_end_date = urlParams.get('end_date'); // url 주소에서 end_date 값 추출
+		let url_search_period = urlParams.get('search_period'); // url 주소에서 search_period 값 추출
 
-	/* 기간 선택 select */
-	/*let one_w = document.getElementById("one_w");
+		// console.log(url_start_date)
+		// console.log(url_end_date)
+		// console.log(url_search_period)
 
-	function period(a) {
-		alert(a.value)
-	}*/
+		let start_date = document.getElementById('start_date');
+		let end_date = document.getElementById('end_date');
+		let search_period = document.getElementById('search_period');
+
+		if (search_period.value) { // url주소에 keyword가 있는경우 -> 검색한 창에 입력한 값 유지하기
+			console.log("기간 정해짐")
+			start_date.value = url_start_date
+			end_date.value = url_end_date
+			search_period.value = url_search_period
+		} else {
+			console.log("기간 안 정해짐")
+			search_period.value = "all"
+		}
+
+//	} catch (e) {
+//		console.log(e)
+	//}
 }

@@ -26,14 +26,16 @@
 		<div class="history_box">
 			<div class="search_box">
 				<!--  <select onchange="javascript:period(this)"> -->
-				<select>
-					<option>전체</option>
-					<option id="one_w" value="one_w">1주일</option>
-					<option id="one_m" value="one_m">1개월</option>
-					<option id="three_m" value="three_m">3개월</option>
-					<option id="six_m" value="six_m">6개월</option>
-				</select> <input type="text" id="start_date" name="start_date" readonly oninput="done_fcn(5)"> <input type="text" id="end_date" name="end_date"
-					readonly oninput="done_fcn(5)"> <input type="button" value="Search">
+				<form action="/order_history" method="get">
+					<select name="search_period" id="search_period">
+						<option id="all" value="all">전체</option>
+						<option id="one_w" value="one_w">1주일</option>
+						<option id="one_m" value="one_m">1개월</option>
+						<option id="three_m" value="three_m">3개월</option>
+						<option id="six_m" value="six_m">6개월</option>
+					</select> <input type="text" id="start_date" name="start_date" readonly oninput="done_fcn(5)"> <input type="text" id="end_date" name="end_date"
+						readonly oninput="done_fcn(5)"> <input type="submit" value="Search">
+				</form>
 			</div>
 			<div class="content_box">
 				<table>

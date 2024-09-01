@@ -5,12 +5,31 @@
 
 <mapper namespace="org.inventory_pj.mapper.OrderHistoryMapper">
 
+	<!-- <select id="history_total_list" resultType="org.inventory_pj.model.Order_totalVO"> select * from orderlist <- 요거는 각주 select * from( select @rownum:=@rownum+1 
+		rownum, ot.* from order_total ot,(SELECT @rownum:=0) as tmp order by order_num desc ) as order_total <![CDATA[ where rownum > (#{page_num}-1)*#{amount} 
+		and rownum <= #{page_num}*#{amount} ]]> </select> -->
 	<select id="history_total_list" resultType="org.inventory_pj.model.Order_totalVO">
-		<!-- select * from orderlist -->
 		select *
 		from(
 		select @rownum:=@rownum+1 rownum, ot.*
 		from order_total ot,(SELECT @rownum:=0) as tmp
+		<if test="search_period != null">
+			<choose>
+				<when test="search_period=='one_w'.toString()"> <!-- 1주일 -->
+					where regdate between date_sub(now(),interval 7 day) and now()
+				</when>
+				<when test="search_period=='one_m'.toString()"> <!-- 1개월 -->
+					where regdate between date_sub(now(),interval 1 month) and now()
+				</when>
+				<when test="search_period=='three_m'.toString()"> <!-- 3개월 -->
+					where regdate between date_sub(now(),interval 3 month) and now()
+				</when>
+				<when test="search_period=='six_m'.toString()"> <!-- 6개월 -->
+					where regdate between date_sub(now(),interval 6 month) and now()
+				</when>
+			</choose>
+		</if>
+
 		order by order_num desc
 		) as order_total
 		<![CDATA[
@@ -20,6 +39,22 @@
 
 	<select id="total" resultType="int">
 		select count(*) from order_total
+		<if test="search_period != null">
+			<choose>
+				<when test="search_period=='one_w'.toString()"> <!-- 1주일 -->
+					where regdate between date_sub(now(),interval 7 day) and now()
+				</when>
+				<when test="search_period=='one_m'.toString()"> <!-- 1개월 -->
+					where regdate between date_sub(now(),interval 1 month) and now()
+				</when>
+				<when test="search_period=='three_m'.toString()"> <!-- 3개월 -->
+					where regdate between date_sub(now(),interval 3 month) and now()
+				</when>
+				<when test="search_period=='six_m'.toString()"> <!-- 6개월 -->
+					where regdate between date_sub(now(),interval 6 month) and now()
+				</when>
+			</choose>
+		</if>
 	</select>
 
 

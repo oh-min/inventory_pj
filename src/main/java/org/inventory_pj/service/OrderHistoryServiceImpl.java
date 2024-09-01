@@ -21,8 +21,8 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	};
 
 	// 전체 건수
-	public int total() {
-		return ohm.total();
+	public int total(CriteriaVO cvo) {
+		return ohm.total(cvo);
 	};
 
 	// 특정 주문번호의 디테일

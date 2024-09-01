@@ -24,8 +24,11 @@ public class OrderHistoryController {
 		// 주문내역 페이지로 이동할 때 정보 가져오기
 		model.addAttribute("history_list", ohs.history_total_list(cvo));
 
+		System.out.println(cvo);
+		System.out.println(ohs.history_total_list(cvo));
+		
 		// 페이징 처리
-		int total = ohs.total();
+		int total = ohs.total(cvo);
 		model.addAttribute("paging", new PageVO(cvo, total));
 
 		return "/order_history";

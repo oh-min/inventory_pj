@@ -11,7 +11,7 @@ public interface OrderHistoryService {
 	public ArrayList<Order_detailVO> history_total_list(CriteriaVO cvo);
 
 	// 전체 건수
-	public int total();
+	public int total(CriteriaVO cvo);
 	
 	// 특정 주문번호의 디테일
 	public ArrayList<Order_detailVO> detail(Order_detailVO odvo);
