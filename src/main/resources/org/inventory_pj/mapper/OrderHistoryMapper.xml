@@ -27,6 +27,9 @@
 				<when test="search_period=='six_m'.toString()"> <!-- 6개월 -->
 					where regdate between date_sub(now(),interval 6 month) and now()
 				</when>
+				<when test="search_period=='set'.toString()"> <!-- 기간 설정 -->
+					where regdate between #{start_date} and #{end_date}
+				</when>
 			</choose>
 		</if>
 
@@ -52,6 +55,9 @@
 				</when>
 				<when test="search_period=='six_m'.toString()"> <!-- 6개월 -->
 					where regdate between date_sub(now(),interval 6 month) and now()
+				</when>
+				<when test="search_period=='set'.toString()"> <!-- 기간 설정 -->
+					where regdate between #{start_date} and #{end_date}
 				</when>
 			</choose>
 		</if>

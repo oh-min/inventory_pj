@@ -28,11 +28,19 @@ window.onload = function() {
 			changeMonth: true, //option값  월 선택 가능
 			showMonthAfterYear: true, // 월- 년 순서가아닌 년도 - 월 순서
 			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'], //달력의 월 부분 텍스트
-			onSelect: function() { // end_date의 최소 선택일자를 start_date에서 선택한 날짜보다 이후로 설정
+			onSelect: function(dateText) { // end_date의 최소 선택일자를 start_date에서 선택한 날짜보다 이후로 설정
 				var minDate = $(this).datepicker('getDate');
 				$("#end_date").datepicker('option', 'minDate', minDate);
+
+				// 날짜 설정시 기간 설정으로 선택하기 
+				let set_opt = document.getElementById("set");
+				if (dateText) {
+					set_opt.selected = true;
+				}
+
 			}
 		})
+
 
 		$("#end_date").datepicker({
 			dateFormat: "yy-mm-dd", // 출력 형식
@@ -51,32 +59,47 @@ window.onload = function() {
 		$('#end_date').datepicker('setDate', 'today');
 	});
 
+
+
 	/* 검색 결과 유지 */
-//	try {
+	try {
 		let urlParams = new URL(location.href).searchParams;
 		let url_start_date = urlParams.get('start_date'); // url 주소에서 start_date 값 추출
 		let url_end_date = urlParams.get('end_date'); // url 주소에서 end_date 값 추출
 		let url_search_period = urlParams.get('search_period'); // url 주소에서 search_period 값 추출
 
-		// console.log(url_start_date)
-		// console.log(url_end_date)
-		// console.log(url_search_period)
-
 		let start_date = document.getElementById('start_date');
 		let end_date = document.getElementById('end_date');
 		let search_period = document.getElementById('search_period');
 
-		if (search_period.value) { // url주소에 keyword가 있는경우 -> 검색한 창에 입력한 값 유지하기
-			console.log("기간 정해짐")
+		if (url_search_period.value != "all") { // url주소에 keyword가 있는경우 -> 검색한 창에 입력한 값 유지하기
 			start_date.value = url_start_date
 			end_date.value = url_end_date
 			search_period.value = url_search_period
 		} else {
-			console.log("기간 안 정해짐")
 			search_period.value = "all"
 		}
 
-//	} catch (e) {
-//		console.log(e)
-	//}
+	} catch (e) {
+		console.log(e)
+	}
+}
+function change_sp() {
+	let search_period = document.getElementById('search_period');
+	let start_date = document.getElementById('start_date');
+	let end_date = document.getElementById('end_date');
+	let all = document.getElementById('all');
+
+	// 기간 설정으로 selected 중
+	if (search_period.value == "set") {
+		console.log("기간설정으로 선택되어 있음");
+	} else {	// 다른걸로selected 되었다면
+		console.log("기간설정이 아님");
+		// start_date, end_date null 값으로 변
+		start_date.value = null;
+		end_date.value = null;
+
+	}
+
+
 }

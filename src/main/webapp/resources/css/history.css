@@ -19,6 +19,35 @@
 	margin-top: 20px;
 }
 
+#search_period, #start_date, #end_date, #search_btn {
+	height: 31px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+#start_date, #end_date {
+	width: 150px;
+}
+
+#search_btn {
+	width: 70px;
+}
+
+#search_btn:hover{
+	color: #FFC125;
+}
+
+form {
+	height: 45px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	/* margin-top: 6px;
+	margin-bottom: 6px; */
+}
 /* 리스트 부분 */
 .content_box {
 	width: 100%;
@@ -60,7 +89,7 @@ th {
 	text-decoration: none;
 }
 
-.on>a:hover{
+.on>a:hover {
 	color: #FFC125;
 }
 /* 페이징 부분 */

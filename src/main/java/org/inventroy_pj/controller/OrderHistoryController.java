@@ -27,10 +27,10 @@ public class OrderHistoryController {
 		System.out.println(cvo);
 		System.out.println(ohs.history_total_list(cvo));
 		
-		// 페이징 처리
+		// 페이징 처리 & 검색
 		int total = ohs.total(cvo);
 		model.addAttribute("paging", new PageVO(cvo, total));
-
+		// System.out.println(cvo.getStart_date().getClass().getName()); // Type 확인
 		return "/order_history";
 	};
 
