@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.inven_box {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: space-between;
+	margin: 20px;
+}
+
+#week_box, #now_inven_box, #order_inven_box {
+	border: 1px solid black;
+	width: 31%;
+	height: 650px;
+	margin-top: 20px;
+}
+
+.email_box {
+	border: 1px solid black;
+	margin: 20px;
+	height: 57px;
+}

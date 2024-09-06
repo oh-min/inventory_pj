@@ -10,3 +10,7 @@ function move_order() {
 function move_order_history() {
 	window.location.href = "/order_history";
 }
+/* 홀 재고 이동 */
+function move_hall_inven() {
+	window.location.href = "/hall_inven";
+}
