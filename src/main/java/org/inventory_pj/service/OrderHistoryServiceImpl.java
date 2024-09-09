@@ -15,24 +15,24 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	@Autowired
 	OrderHistoryMapper ohm;
 
-	// order list ÃÑ ÁÖ¹® ¸ñ·Ï
+	// order list ëª©ë¡
 	public ArrayList<Order_detailVO> history_total_list(CriteriaVO cvo) {
 		return ohm.history_total_list(cvo);
 	};
 
-	// ÀüÃ¼ °Ç¼ö
+	// ì „ì²´ ê°œìˆ˜
 	public int total(CriteriaVO cvo) {
 		return ohm.total(cvo);
 	};
 
-	// Æ¯Á¤ ÁÖ¹®¹øÈ£ÀÇ µğÅ×ÀÏ
+	// ìƒì„¸ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 	public ArrayList<Order_detailVO> detail(Order_detailVO odvo) {
 		return ohm.detail(odvo);
 	};
 
-	// Æ¯Á¤ ÁÖ¹®¹øÈ£ÀÇ total
+	// ìƒì„¸ ì •ë³´ total
 	public ArrayList<Order_totalVO> order_total(Order_totalVO otvo) {
-		System.out.println("Æ¯Á¤ ÁÖ¹®¹øÈ£ÀÇ total ¼­ºñ½º ¿¬°á ¿Ï·á");
+		System.out.println("Æ¯ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½È£ï¿½ï¿½ total ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 		System.out.println(ohm.order_total(otvo));
 		return ohm.order_total(otvo);
 	};

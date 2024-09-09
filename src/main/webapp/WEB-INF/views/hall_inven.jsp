@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +16,12 @@
 	</div>
 	<div class="main_content">
 		<div class="inven_box">
-			<div id="week_box">일주일치 주문 내역 및 사용량</div>
+			<div id="week_box">
+				일주일치 주문 내역 및 사용량<br>
+				<c:forEach items="${orderData}" var="orderData">
+			 ${orderData}
+			</c:forEach>
+			</div>
 			<div id="now_inven_box">현재 재고</div>
 			<div id="order_inven_box">주문할 내역</div>
 		</div>

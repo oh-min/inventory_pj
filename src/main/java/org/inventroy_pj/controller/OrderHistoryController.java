@@ -17,27 +17,26 @@ public class OrderHistoryController {
 	@Autowired
 	OrderHistoryService ohs;
 
-	/* ÁÖ¹®³»¿ªÆäÀÌÁö·Î ÀÌµ¿ÇÏ±â */
+	/* ì£¼ë¬¸ ë‚´ì—­ í˜ì´ì§€ ì´ë™ */
 	@RequestMapping(value = "/order_history", method = RequestMethod.GET)
 	public String order_history(Model model, CriteriaVO cvo) {
 
-		// ÁÖ¹®³»¿ª ÆäÀÌÁö·Î ÀÌµ¿ÇÒ ¶§ Á¤º¸ °¡Á®¿À±â
+		// ì£¼ë¬¸ ë‚´ì—­ ë¦¬ìŠ¤íŠ¸
 		model.addAttribute("history_list", ohs.history_total_list(cvo));
 
 		System.out.println(cvo);
 		System.out.println(ohs.history_total_list(cvo));
 		
-		// ÆäÀÌÂ¡ Ã³¸® & °Ë»ö
+		// ì£¼ë¬¸ ë‚´ì—­ í˜ì´ì§• ì²˜ë¦¬
 		int total = ohs.total(cvo);
 		model.addAttribute("paging", new PageVO(cvo, total));
-		// System.out.println(cvo.getStart_date().getClass().getName()); // Type È®ÀÎ
+		// System.out.println(cvo.getStart_date().getClass().getName());
 		return "/order_history";
 	};
 
-	/* ÁÖ¹®³»¿ª µğÅ×ÀÏ ÆË¾÷Ã¢ ÀÌµ¿ÇÏ±â */
+	/* ì£¼ë¬¸ ìƒì„¸ ë‚´ì—­ */
 	@RequestMapping(value = "/order_detail", method = RequestMethod.GET)
 	public String order_detail(Order_detailVO odvo, Model model, Order_totalVO otvo) {
-		System.out.println("ÁÖ¹®³»¿ª µğÅ×ÀÏ ÆË¾÷Ã¢ ÀÌµ¿ ÄÁÆ®·Ñ·¯ ¿¬°á ¼º°ø");
 
 		model.addAttribute("detail", ohs.detail(odvo));
 		model.addAttribute("order_total",ohs.order_total(otvo));

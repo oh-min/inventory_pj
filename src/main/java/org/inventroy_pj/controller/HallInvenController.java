@@ -1,14 +1,25 @@
 package org.inventroy_pj.controller;
 
+import org.inventory_pj.service.HallInvenService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HallInvenController {
-	/* È¦ Àç°í ÆäÀÌÁö·Î ÀÌµ¿ÇÏ±â */
+	
+	@Autowired
+	HallInvenService his;
+	
+	/* í™€ ì¬ê³ ê´€ë¦¬ í˜ì´ì§€ ì´ë™ */
 	@RequestMapping(value = "/hall_inven", method = RequestMethod.GET)
-	public void hall_inven() {
-
+	public void hall_inven(Model model) {
+		model.addAttribute("orderData", his.orderData());
+		
+		System.out.println(his.orderData());
 	};
+	
+	
 }
