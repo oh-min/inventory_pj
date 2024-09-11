@@ -8,9 +8,10 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Order_detailVO {
-	private String order_num; // ÁÖ¹®¹øÈ£
-	private String table_num; // Å×ÀÌºí ¹øÈ£
-	private String food; // À½½Ä ÀÌ¸§
-	private String cnt; // °¹¼ö
-	private String price; // ÁÖ¹®ÇÑ À½½Ä 1°³ °¡°İ * °¹¼ö
+	private String order_num; // ì£¼ë¬¸ë²ˆí˜¸
+	private String table_num; // í…Œì´ë¸” ë²ˆí˜¸
+	private String food; // ìŒì‹ ì¼ë¯€
+	private String cnt; // ê°¯ìˆ˜
+	private String price; // ê°€ê²©
+	private String total_cnt; // ì´ ê°¯ìˆ˜
 }

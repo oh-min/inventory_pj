@@ -17,10 +17,22 @@
 	<div class="main_content">
 		<div class="inven_box">
 			<div id="week_box">
-				일주일치 주문 내역 및 사용량<br>
-				<c:forEach items="${orderData}" var="orderData">
-			 ${orderData}
-			</c:forEach>
+				<input type="text" id="period" class="day" readonly>
+				<div id="viewBox">
+					<input type="button" value="주문 내역 보기" class="viewBtn"> <input type="button" value="용품 사용량 보기" class="viewBtn">
+				</div>
+				<table id="orderDataT">
+					<tr id="orderDataTTh">
+						<th>음식</th>
+						<th>총 갯수</th>
+					</tr>
+					<c:forEach items="${orderData}" var="orderData">
+						<tr>
+							<td>${orderData.food}</td>
+							<td>${orderData.total_cnt}</td>
+						</tr>
+					</c:forEach>
+				</table>
 			</div>
 			<div id="now_inven_box">현재 재고</div>
 			<div id="order_inven_box">주문할 내역</div>

@@ -9,14 +9,52 @@
 }
 
 #week_box, #now_inven_box, #order_inven_box {
-	border: 1px solid black;
+	border: 1px solid #ccc;
+	border-radius: 6px;
 	width: 31%;
 	height: 650px;
 	margin-top: 20px;
+	background-color: white;
 }
 
+.day {
+	width: 98%;
+	height: 35px;
+	font-size: 18px;
+	text-align: center;
+	border: none;
+	margin-top: 5px;
+}
+
+#viewBox {
+	display: flex;
+	justify-content: space-around;
+	gap: 10px;
+	margin: 5px;
+}
+
+.viewBtn {
+	width: 47%;
+	height: 33px;
+}
+
+#orderDataT {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#orderDataTTh {
+	height: 37px;
+	background-color: #f9f9f9;
+}
+
+tr{
+	height: 25px;
+}
 .email_box {
-	border: 1px solid black;
+	border: 1px solid #ccc;
+	border-radius: 6px;
 	margin: 20px;
 	height: 57px;
 }
