@@ -25,7 +25,8 @@ function move_to_cart(element) {
 
 	// 선택한 음식 이름 및 가격
 	let text = element.textContent;
-
+	
+	console.log("======="+text)
 	// 정규 표현식으로 한글 추출 => 음식 이름
 	let regex_kor = /[가-힣]+/g;
 	let kor_match = text.match(regex_kor);

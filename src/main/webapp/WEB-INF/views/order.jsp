@@ -116,15 +116,13 @@
 					</div>
 					<div class="list_container" id="list6" style="display: none;">
 						<ul>
-							<li class="list_item" onclick="move_to_cart(this)">감자탕 M Spicy Potato &amp; Pork Neck Bone Hot Pot Medium $76</li>
-							<li class="list_item" onclick="move_to_cart(this)">감자탕 L Spicy Potato &amp; Pork Neck Bone Hot Pot Large $89</li>
+							<li class="list_item" onclick="move_to_cart(this)">감자탕 Spicy Potato &amp; Pork Neck Bone Hot Pot $89</li>
 							<li class="list_item" onclick="move_to_cart(this)">돼지국밥전골 Korean Traditional Pork Hot Pot $80</li>
 							<li class="list_item" onclick="move_to_cart(this)">순대국밥전골 Korean Sausage (Soon-dae)Hot Pot $84.50</li>
 							<li class="list_item" onclick="move_to_cart(this)">도가니 전골 Ox Knee Hot Pot $84.50</li>
 							<li class="list_item" onclick="move_to_cart(this)">불고기 버섯 전골 Marinated Beef &amp; Mushroom Hot Pot $84.50</li>
 							<li class="list_item" onclick="move_to_cart(this)">불고기 낙지 전골 Marinated Beef &amp; Octopus Hot Pot $89</li>
-							<li class="list_item" onclick="move_to_cart(this)">낙곱새 M Spicy Octopus Of Beef Intestine &amp; Prawn Hot Pot M $76</li>
-							<li class="list_item" onclick="move_to_cart(this)">낙곱새 L Spicy Octopus Of Beef Intestine &amp; Prawn Hot Pot L $89</li>
+							<li class="list_item" onclick="move_to_cart(this)">낙곱새 Spicy Octopus Of Beef Intestine &amp; Prawn Hot Pot $89</li>
 							<li class="list_item" onclick="move_to_cart(this)">돼지 묵은지 전골 Pork Rib &amp; Kimchi Hot Pot $84.50</li>
 							<li class="list_item" onclick="move_to_cart(this)">해물 전골Spicy Seafood Hot Pot $89</li>
 							<li class="list_item" onclick="move_to_cart(this)">만두 전골Dumplings Hot Pot $84.50</li>

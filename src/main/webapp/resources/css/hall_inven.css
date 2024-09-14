@@ -24,6 +24,7 @@
 	text-align: center;
 	border: none;
 	margin-top: 5px;
+	outline: none;
 }
 
 #viewBox {
@@ -38,13 +39,13 @@
 	height: 33px;
 }
 
-#orderDataT {
+#orderDataT, #amountUsedT {
 	width: 90%;
 	margin: 0 auto;
 	text-align: center;
 }
 
-#orderDataTTh {
+#orderDataTTh, #amountUsedTTh {
 	height: 37px;
 	background-color: #f9f9f9;
 }

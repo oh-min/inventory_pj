@@ -8,6 +8,24 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/hall_inven.css" />
 <script src="/resources/js/hall_inven.js"></script>
+<script type="text/javascript">
+	//let orderData = new Array(`${orderData}`);
+	//orderData = `${orderData}`;
+	//console.log(orderData)
+	//console.log(typeof (orderData))
+
+	let orderDataArr = new Array();
+	<c:forEach items="${orderData}" var="orderData">
+	orderDataArr.push({
+		total_cnt : "${orderData.total_cnt}",
+		tac_category : "${orderData.tac_category}"
+	})
+	</c:forEach>
+
+	window.onload = function() {
+		initialize(orderDataArr);
+	}
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -19,8 +37,10 @@
 			<div id="week_box">
 				<input type="text" id="period" class="day" readonly>
 				<div id="viewBox">
-					<input type="button" value="주문 내역 보기" class="viewBtn"> <input type="button" value="용품 사용량 보기" class="viewBtn">
+					<input type="button" value="주문 내역 보기" class="viewBtn" id="orderViewBtn"> <input type="button" value="용품 사용량 보기" class="viewBtn"
+						id="amountUsedViewBtn">
 				</div>
+				<!-- 주문 내역 테이블 -->
 				<table id="orderDataT">
 					<tr id="orderDataTTh">
 						<th>음식</th>
@@ -32,6 +52,18 @@
 							<td>${orderData.total_cnt}</td>
 						</tr>
 					</c:forEach>
+				</table>
+				<!-- 용품 사용량 테이블 -->
+				<table id="amountUsedT" style="display: none;">
+					<tr id="amountUsedTTh">
+						<th>용품</th>
+						<th>사용량</th>
+					</tr>
+					<!-- 여기에 용품 사용량 데이터가 들어갑니다. -->
+					<tr>
+						<td>용기 m</td>
+						<td>2</td>
+					</tr>
 				</table>
 			</div>
 			<div id="now_inven_box">현재 재고</div>

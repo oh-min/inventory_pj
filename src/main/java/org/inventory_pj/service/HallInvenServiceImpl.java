@@ -15,7 +15,7 @@ public class HallInvenServiceImpl implements HallInvenService {
 
 	public ArrayList<Order_detailVO> orderData() {
 		System.out.println("hall inven service chk");
-
+		System.out.println(him.orderData());
 		return him.orderData();
 	}
 }

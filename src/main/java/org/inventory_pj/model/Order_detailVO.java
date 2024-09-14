@@ -13,5 +13,7 @@ public class Order_detailVO {
 	private String food; // 음식 일므
 	private String cnt; // 갯수
 	private String price; // 가격
+
 	private String total_cnt; // 총 갯수
+	private String tac_category; // 포장용기 카테고리
 }
