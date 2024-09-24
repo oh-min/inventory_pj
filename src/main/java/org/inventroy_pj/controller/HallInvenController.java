@@ -20,8 +20,12 @@ public class HallInvenController {
 	public void hall_inven(Model model) throws IOException {
 		model.addAttribute("orderData", his.orderData());
 
-		System.out.println("controller ===== " + his.orderData());
+		// System.out.println("controller ===== " + his.orderData());
 		// System.out.println(his.orderData().getClass().getName()); // 데이터 타입 : Java.util.ArrayList
+		
+		model.addAttribute("nowInven", his.nowInven());
+		System.out.println("controller ===== " + his.nowInven());
+		// System.out.println(his.nowInven().getClass().getName()); // 데이터 타입 : org.inventory_pj.model.InventoryVO
 	};
 
 }

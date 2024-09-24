@@ -67,15 +67,15 @@ function initialize(orderDataArr) {
 	// console.log(orderDataArr)
 	// console.log(typeof (orderDataArr)) // String
 
-
-	let arr1 = [];
-	let arr2 = [];
-	let arr3 = [];
-	let arr4 = [];
-	let arr5 = [];
+	let arr1 = []; // cat1
+	let arr2 = []; // cat2
+	let arr3 = []; // cat3
+	let arr4 = []; // cat4
+	let arr5 = []; // cat5
+	let arr6 = []; // cat6
 	orderDataArr.forEach(cat => {
 		if (cat.tac_category === 'cat1') {
-			console.log(typeof (cat.total_cnt))
+			// console.log(typeof (cat.total_cnt))
 			arr1.push(parseFloat(cat.total_cnt));
 		} else if (cat.tac_category === 'cat2') {
 			arr2.push(parseFloat(cat.total_cnt));
@@ -85,6 +85,8 @@ function initialize(orderDataArr) {
 			arr4.push(parseFloat(cat.total_cnt));
 		} else if (cat.tac_category === 'cat5') {
 			arr5.push(parseFloat(cat.total_cnt));
+		} else if (cat.tac_category === 'cat6') {
+			arr6.push(parseFloat(cat.total_cnt));
 		}
 	});
 	//console.log(arr1)
@@ -97,27 +99,86 @@ function initialize(orderDataArr) {
 	for (let i = 0; i < arr1.length; i++) {
 		arr1Sum += arr1[i];
 	}
-	console.log(arr1Sum)
+	console.log("cat1 = " + arr1Sum)
 	let arr2Sum = 0;
 	for (let i = 0; i < arr2.length; i++) {
 		arr2Sum += arr2[i];
 	}
-	console.log(arr2Sum)
+	console.log("cat2 = " + arr2Sum)
 	let arr3Sum = 0;
 	for (let i = 0; i < arr3.length; i++) {
 		arr3Sum += arr3[i];
 	}
-	console.log(arr3Sum)
+	console.log("cat3 = " + arr3Sum)
 	let arr4Sum = 0;
 	for (let i = 0; i < arr4.length; i++) {
 		arr4Sum += arr4[i];
 	}
-	console.log(arr4Sum)
+	console.log("cat4 = " + arr4Sum)
 	let arr5Sum = 0;
 	for (let i = 0; i < arr5.length; i++) {
 		arr5Sum += arr5[i];
 	}
-	console.log(arr5Sum)
+	console.log("cat5 = " + arr5Sum)
+	let arr6Sum = 0;
+	for (let i = 0; i < arr6.length; i++) {
+		arr6Sum += arr6[i];
+	}
+	console.log("cat6 = " + arr6Sum)
 
+	let paperTac = 0; // 종이 용기
+	let sauceTac = 0; // 소스 용기
+	let wChopstick = 0; // 나무 젓가락
+	let tacM = 0; // 포장용기 M
+	let tacL = 0; // 포장용기 L
+	let wSpoon = 0; // 나무 숫가락
+
+	if (arr1Sum) {
+		// paperTac / sauceTac / wChopstick 1개
+		paperTac += arr1Sum;
+		sauceTac += arr1Sum;
+		wChopstick += arr1Sum;
+	}
+	if (arr2Sum) {
+		// tacM 1개
+		tacM += arr2Sum;
+	}
+	if (arr3Sum) {
+		// tacL 1개 / wChopstick 4개
+		tacL += arr3Sum;
+		wChopstick += (arr3Sum * 4);
+	}
+	if (arr4Sum) {
+		// sauceTac / wChopstick / wSpoon 1개 
+		sauceTac += arr4Sum;
+		wChopstick += arr4Sum;
+		wSpoon += arr4Sum;
+	}
+	if (arr5Sum) {
+		// tacL 1개 / wChopstick / wSpoon 4개
+		tacL += arr5Sum;
+		wChopstick += (arr5Sum * 4);
+		wSpoon += (arr5Sum * 4);
+	}
+	if (arr6Sum) {
+		// tacM / wChopstick / wSpoon 1개
+		tacM += arr6Sum;
+		wChopstick += arr6Sum;
+		wSpoon += arr6Sum;
+	}
+	console.log("종이 용기 = " + paperTac)
+	console.log("소스 용기 = " + sauceTac)
+	console.log("나무 젓가락 = " + wChopstick)
+	console.log("포장용기 M = " + tacM)
+	console.log("포장용기 L = " + tacL)
+	console.log("나무 숫가락 = " + wSpoon)
+
+	//.innerHTML 를 사용하여 표에 사용량 넣기
+	document.getElementById("paperTac").innerHTML = paperTac;
+	document.getElementById("sauceTac").innerHTML = sauceTac;
+	document.getElementById("wChopstick").innerHTML = wChopstick;
+	document.getElementById("tacM").innerHTML = tacM;
+	document.getElementById("tacL").innerHTML = tacL;
+	document.getElementById("wSpoon").innerHTML = wSpoon;
 }
 

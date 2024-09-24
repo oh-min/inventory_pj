@@ -44,7 +44,7 @@
 				<table id="orderDataT">
 					<tr id="orderDataTTh">
 						<th>음식</th>
-						<th>총 갯수</th>
+						<th>총 주문 갯수</th>
 					</tr>
 					<c:forEach items="${orderData}" var="orderData">
 						<tr>
@@ -59,14 +59,67 @@
 						<th>용품</th>
 						<th>사용량</th>
 					</tr>
-					<!-- 여기에 용품 사용량 데이터가 들어갑니다. -->
 					<tr>
-						<td>용기 m</td>
-						<td>2</td>
+						<td>종이 용기</td>
+						<td id="paperTac"></td>
+					</tr>
+					<tr>
+						<td>소스 용기</td>
+						<td id="sauceTac"></td>
+					</tr>
+					<tr>
+						<td>나무 젓가락</td>
+						<td id="wChopstick"></td>
+					</tr>
+					<tr>
+						<td>포장용기 M</td>
+						<td id="tacM"></td>
+					</tr>
+					<tr>
+						<td>포장용기 L</td>
+						<td id="tacL"></td>
+					</tr>
+					<tr>
+						<td>나무 숫가락</td>
+						<td id="wSpoon"></td>
 					</tr>
 				</table>
 			</div>
-			<div id="now_inven_box">현재 재고</div>
+			<div id="now_inven_box">
+				현재 재고 ${nowInven}${nowInven.chopstick}
+				<!-- 주문 내역 테이블 -->
+				<table id="nowInvenT">
+					<tr id="nowInvenTTh">
+						<th>음식</th>
+						<th>총 주문 갯수</th>
+					</tr>
+					<tr>
+						<td>포장용기 M</td>
+						<td>${nowInven.tacM}</td>
+					</tr>
+					<tr>
+						<td>포장용기 L</td>
+						<td>${nowInven.tacL}</td>
+					</tr>
+					<tr>
+						<td>종이용기</td>
+						<td>${nowInven.paperTac}</td>
+					</tr>
+					<tr>
+						<td>소스용기</td>
+						<td>${nowInven.sauceTac}</td>
+					</tr>
+<%-- 
+					<tr>
+						<td>나무젓가락</td>
+						<td>${nowInven.wChopstick}</td>
+					</tr> --%>
+					<%--	<tr>
+						<td>나무숫가락</td>
+						<td>${nowInven.wSpoon}</td>
+					</tr> --%>
+				</table>
+			</div>
 			<div id="order_inven_box">주문할 내역</div>
 		</div>
 		<div class=" email_box">
