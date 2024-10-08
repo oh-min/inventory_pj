@@ -39,10 +39,21 @@
 	height: 33px;
 }
 
+#tableBox1 {
+	max-height: 550px;
+	overflow-y: scroll;
+}
+
 #orderDataT, #amountUsedT {
 	width: 90%;
 	margin: 0 auto;
 	text-align: center;
+}
+
+thead {
+	position: sticky;
+	top: 0;
+	z-index: 10; /* z-index로 헤더를 위로 올림 */
 }
 
 #orderDataTTh, #amountUsedTTh {
@@ -50,9 +61,10 @@
 	background-color: #f9f9f9;
 }
 
-tr{
+tr {
 	height: 25px;
 }
+
 .email_box {
 	border: 1px solid #ccc;
 	border-radius: 6px;

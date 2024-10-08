@@ -15,6 +15,6 @@ public class InventoryVO {
 	private String tacM; // 포장용기 M
 	private String tacL; // 포장용기 L
 	private String chopstick; // 나무 젓가락
-	private String spoon; // 나무 숫가락
+	private String spoon; // 일회용 스푼
 
 }
