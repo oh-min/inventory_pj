@@ -224,5 +224,47 @@ function initialize(orderDataArr) {
 	document.getElementById("usedSauceTacBoxes").innerHTML = usedSauceTacBoxes;
 	document.getElementById("usedChopstickBoxes").innerHTML = usedChopstickBoxes;
 	document.getElementById("usedSpoonBoxes").innerHTML = usedSpoonBoxes;
+
+	/* 현재재고 - 사용재고 */
+	let nowInvenTacM = document.getElementById("nowInvenTacM").innerText;
+	let nowInvenTacL = document.getElementById("nowInvenTacL").innerText;
+	let nowInvenPaperTac = document.getElementById("nowInvenPaperTac").innerText;
+	let nowInvenSauceTac = document.getElementById("nowInvenSauceTac").innerText;
+	let nowInvenChopstick = document.getElementById("nowInvenChopstick").innerText;
+	let nowInvenSpoon = document.getElementById("nowInvenSpoon").innerText;
+
+	console.log(nowInvenTacM - usedTacMBoxes)
+	console.log(nowInvenTacL - usedTacLBoxes)
+	console.log(nowInvenPaperTac - usedPaperTacBoxes)
+	console.log(nowInvenSauceTac - usedSauceTacBoxes)
+	console.log(nowInvenChopstick - usedChopstickBoxes)
+	console.log(nowInvenSpoon - usedSpoonBoxes)
+
+	document.getElementById("availStockTacM").innerText = nowInvenTacM - usedTacMBoxes;
+	document.getElementById("availStockTacL").innerText = nowInvenTacL - usedTacLBoxes;
+	document.getElementById("availStockPaperTac").innerText = nowInvenPaperTac - usedPaperTacBoxes;
+	document.getElementById("availStockSauceTac").innerText = nowInvenSauceTac - usedSauceTacBoxes;
+	document.getElementById("availStockChopstick").innerText = nowInvenChopstick - usedChopstickBoxes;
+	document.getElementById("availStockSpoon").innerText = nowInvenSpoon - usedSpoonBoxes;
+	
+	/* 필요수량 */
+	let stdCount = 10; // 기준 갯수
+	// 뒤에 수식고쳐야함
+	document.getElementById("reqTacM").innerText = (stdCount - (nowInvenTacM - usedTacMBoxes)).toFixed(2);
+	document.getElementById("reqTacL").innerText = (stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2);
+	document.getElementById("reqPaperTac").innerText = (stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2);
+	document.getElementById("reqSauceTac").innerText = (stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2);
+	document.getElementById("reqChopstick").innerText = (stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2);
+	document.getElementById("reqSpoon").innerText = (stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2);
+	
+	/* 주문 수량 */
+	// 필요 수량을 반올림
+	document.getElementById("orderTacM").innerText = Math.round((stdCount - (nowInvenTacM - usedTacMBoxes)).toFixed(2));
+	document.getElementById("orderTacL").innerText = Math.round((stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2));
+	document.getElementById("orderPaperTac").innerText = Math.round((stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2));
+	document.getElementById("orderSauceTac").innerText = Math.round((stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2));
+	document.getElementById("orderChopstick").innerText = Math.round((stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2));
+	document.getElementById("orderSpoon").innerText = Math.round((stdCount - (nowInvenTacL - usedTacLBoxes)).toFixed(2));
+
 }
 

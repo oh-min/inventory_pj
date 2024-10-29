@@ -20,30 +20,30 @@ public class MemberController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(MemberVO mvo, HttpSession session, HttpServletResponse response) {
-		System.out.println("ÀÔ·Â¹ŞÀº À¯ÀúÀÌ¸§ : " + mvo.getUsername());
-		System.out.println("ÀÔ·Â¹ŞÀº ºñ¹Ğ¹øÈ£ : " + mvo.getPw());
+		System.out.println("ì…ë ¥ë°›ì€ ìœ ì €ì´ë¦„ : " + mvo.getUsername());
+		System.out.println("ì…ë ¥ë°›ì€ ë¹„ë°€ë²ˆí˜¸ : " + mvo.getPw());
 
-		// service·Î ³Ñ±ä id, pw¸¦ ÀÌ¿ëÇÏ¿© selectµÇ¾î ³Ñ¾î¿Â °ªÀ» session¿¡ ÀúÀå
+		// serviceï¿½ï¿½ ï¿½Ñ±ï¿½ id, pwï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ selectï¿½Ç¾ï¿½ ï¿½Ñ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ sessionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		session.setAttribute("user", ms.signin(mvo));
-		session.setMaxInactiveInterval(60 * 60); // sessionÀ» 60ºĞ µ¿¾È À¯Áö (¹«ÇÑ´ë : -1)
+		session.setMaxInactiveInterval(60 * 60); // sessionï¿½ï¿½ 60ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½Ñ´ï¿½ : -1)
 
 		try {
-			// È¸¿ø Á¤º¸°¡ ÀÖ´Â °æ¿ì
+			// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 			if (ms.signin(mvo) != null) {
-				System.out.println("µğºñ¿¡ ÀúÀåµÈ À¯ÀúÀÌ¸§ : " + ms.signin(mvo).getUsername());
-				System.out.println("µğºñ¿¡ ÀúÀåµÈ ºñ¹Ğ¹øÈ£ : " + ms.signin(mvo).getPw());
-				// À¯ÀúÀÌ¸§°ú ºñ¹Ğ¹øÈ£ ¸ğµÎ ÀÏÄ¡ÇÏ´Â °æ¿ì
+				System.out.println("ìœ ì €ì´ë¦„ ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜.");
+				System.out.println("ì €ì¥ëœ ìœ ì €ì´ë¦„ : " + ms.signin(mvo).getUsername());
+				System.out.println("ì €ì¥ëœ ë¹„ë°€ë²ˆí˜¸ : " + ms.signin(mvo).getPw());
+				// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ğ¹ï¿½È£ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
 				if (mvo.getUsername().equals(ms.signin(mvo).getUsername()) && mvo.getPw().equals(ms.signin(mvo).getPw())) {
-					System.out.println("·Î±×ÀÎ ¼º°ø");
 
 					System.out.println(session.getAttribute("user"));
 
 					return "redirect:/";
-				} else if (mvo.getUsername().equals(ms.signin(mvo).getUsername())) { // À¯ÀúÀÌ¸§Àº ÀÏÄ¡, ºñ¹Ğ¹øÈ£ ºÒÀÏÄ¡ÇÏ´Â °æ¿ì
+				} else if (mvo.getUsername().equals(ms.signin(mvo).getUsername())) { // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡, ï¿½ï¿½Ğ¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
 					try {
 						response.setContentType("text/html; charset=utf-8");
 						PrintWriter w = response.getWriter();
-						w.write("<script>alert('ºñ¹Ğ¹øÈ£¸¦ Àß¸ø ÀÔ·ÂÇß½À´Ï´Ù.');location.href='/';</script>");
+						w.write("<script>alert('ë­ì§€?ì €ì¥ëœ ì •ë³´ì™€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');location.href='/';</script>");
 						w.flush();
 						w.close();
 						return "/home";
@@ -52,12 +52,12 @@ public class MemberController {
 					}
 				}
 			} else {
-				// È¸¿ø Á¤º¸°¡ nullÀÎ °æ¿ì
-				System.out.println("È¸¿ø Á¤º¸°¡ ¾ø½À´Ï´Ù.");
+				// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ ï¿½ï¿½ï¿½
+				System.out.println("ìœ ì €ì´ë¦„ ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜.");
 				try {
 					response.setContentType("text/html; charset=utf-8");
 					PrintWriter w = response.getWriter();
-					w.write("<script>alert('È¸¿ø Á¤º¸°¡ ¾÷½À´Ï´Ù.');location.href='/';</script>");
+					w.write("<script>alert('ì €ì¥ëœ ì •ë³´ì™€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');location.href='/';</script>");
 					w.flush();
 					w.close();
 					return "/home";
@@ -66,17 +66,17 @@ public class MemberController {
 				}
 			}
 		} catch (Exception e) {
-			System.err.println("È¸¿ø Á¤º¸ Á¶È¸ Áß ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù: " + e.getMessage());
+			System.err.println("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½: " + e.getMessage());
 			e.printStackTrace();
 		}
 
 		return "redirect:/";
 	}
 
-	/* ·Î±×¾Æ¿ô */
+	/* ë¡œê·¸ì•„ì›ƒ */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
-		session.invalidate(); // ·Î±×ÀÎ ¹«È¿È­
+		session.invalidate(); // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½È¿È­
 		return "redirect:/";
 	}
 

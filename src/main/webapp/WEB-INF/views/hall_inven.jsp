@@ -92,13 +92,13 @@
 				</div>
 			</div>
 			<div id="now_inven_box">
-				현재 재고<br> 사용 재고 데이터 확인<br>
-				<p id="usedTacMBoxes"></p>
-				<p id="usedTacLBoxes"></p>
-				<p id="usedPaperTacBoxes"></p>
-				<p id="usedSauceTacBoxes"></p>
-				<p id="usedChopstickBoxes"></p>
-				<p id="usedSpoonBoxes"></p>
+				<!-- 사용 재고 데이터 확인 -->
+				<p class="nonDisp" id="usedTacMBoxes"></p>
+				<p class="nonDisp" id="usedTacLBoxes"></p>
+				<p class="nonDisp" id="usedPaperTacBoxes"></p>
+				<p class="nonDisp" id="usedSauceTacBoxes"></p>
+				<p class="nonDisp" id="usedChopstickBoxes"></p>
+				<p class="nonDisp" id="usedSpoonBoxes"></p>
 
 				<!-- 주문 내역 테이블 -->
 				<table id="nowInvenT">
@@ -107,43 +107,56 @@
 						<th>현재 재고</th>
 						<th>기준 재고</th>
 						<th>필요 수량</th>
+						<th>주문 수량</th>
 					</tr>
 					<tr>
 						<td>포장용기 M</td>
-						<td>${nowInven.tacM}</td>
+						<td id="nowInvenTacM" class="nonDisp">${nowInven.tacM}</td>
+						<td id="availStockTacM"></td>
 						<td>10</td>
-						<td></td>
+						<td id="reqTacM"></td>
+						<td id="orderTacM"></td>
 					</tr>
 					<tr>
 						<td>포장용기 L</td>
-						<td>${nowInven.tacL}</td>
+						<td id="nowInvenTacL" class="nonDisp">${nowInven.tacL}</td>
+						<td id="availStockTacL"></td>
 						<td>10</td>
-						<td></td>
+						<td id="reqTacL"></td>
+						<td id="orderTacL"></td>
 					</tr>
 					<tr>
 						<td>종이 용기</td>
-						<td>${nowInven.paperTac}</td>
+						<td id="nowInvenPaperTac" class="nonDisp">${nowInven.paperTac}</td>
+						<td id="availStockPaperTac"></td>
 						<td>10</td>
-						<td></td>
+						<td id="reqPaperTac"></td>
+						<td id="orderPaperTac"></td>
 					</tr>
 					<tr>
 						<td>소스 용기</td>
-						<td>${nowInven.sauceTac}</td>
+						<td id="nowInvenSauceTac" class="nonDisp">${nowInven.sauceTac}</td>
+						<td id="availStockSauceTac"></td>
 						<td>10</td>
-						<td></td>
+						<td id="reqSauceTac"></td>
+						<td id="orderSauceTac"></td>
 					</tr>
 
 					<tr>
 						<td>나무 젓가락</td>
-						<td>${nowInven.chopstick}</td>
+						<td id="nowInvenChopstick" class="nonDisp">${nowInven.chopstick}</td>
+						<td id="availStockChopstick"></td>
 						<td>10</td>
-						<td></td>
+						<td id="reqChopstick"></td>
+						<td id="orderChopstick"></td>
 					</tr>
 					<tr>
 						<td>일회용 스푼</td>
-						<td>${nowInven.spoon}</td>
+						<td id="nowInvenSpoon" class="nonDisp">${nowInven.spoon}</td>
+						<td id="availStockSpoon"></td>
 						<td>10</td>
-						<td></td>
+						<td id="reqSpoon"></td>
+						<td id="orderSpoon"></td>
 					</tr>
 				</table>
 			</div>

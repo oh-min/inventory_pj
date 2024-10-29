@@ -44,10 +44,14 @@
 	overflow-y: scroll;
 }
 
-#orderDataT, #amountUsedT {
+#orderDataT, #amountUsedT, #nowInvenT {
 	width: 90%;
 	margin: 0 auto;
 	text-align: center;
+}
+
+#nowInvenT {
+	margin-top: 20px;
 }
 
 thead {
@@ -56,13 +60,17 @@ thead {
 	z-index: 10; /* z-index로 헤더를 위로 올림 */
 }
 
-#orderDataTTh, #amountUsedTTh {
+#orderDataTTh, #amountUsedTTh, #nowInvenTTh {
 	height: 37px;
 	background-color: #f9f9f9;
 }
 
 tr {
 	height: 25px;
+}
+
+.nonDisp {
+	display: none;
 }
 
 .email_box {
