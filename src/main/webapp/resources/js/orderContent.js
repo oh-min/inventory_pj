@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+
+function writeContent(){
+	alert("connect")
+}

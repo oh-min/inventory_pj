@@ -17,6 +17,11 @@
 	background-color: white;
 }
 
+#orderViewBtn, #amountUsedViewBtn, #contentBtn {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
 .day {
 	width: 98%;
 	height: 35px;
@@ -48,10 +53,12 @@
 	width: 90%;
 	margin: 0 auto;
 	text-align: center;
+	border-collapse: collapse;
 }
 
-#nowInvenT {
-	margin-top: 20px;
+.tTitle {
+	font-size: 20px;
+	text-align: center;
 }
 
 thead {
@@ -66,11 +73,50 @@ thead {
 }
 
 tr {
-	height: 25px;
+	height: 35px;
+}
+
+tr, td, th, thead {
+	border: solid #E9ECEF 1px;
+	border-left: none;
+	border-right: none;
+}
+
+.fontBold {
+	font-weight: bold;
+}
+
+.backY {
+	background-color: #FFC125
+}
+/*FFC125*/
+#contentBtn {
+	width: 200px;
+	height: 45px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+	font-size: 16px;
+}
+
+#contentBtn:hover {
+	background-color: #FFC125;
 }
 
 .nonDisp {
 	display: none;
+}
+
+textarea {
+	width: 80%;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	resize: none;
+	min-height: 300px;
+	margin: 0 auto;
+	display: block;
+	font-size: 15px;
 }
 
 .email_box {

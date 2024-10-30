@@ -48,11 +48,15 @@ window.addEventListener('load', function() {
 	orderViewBtn.addEventListener('click', function() {
 		orderTable.style.display = 'table';
 		amountUsedTable.style.display = 'none';
+		orderViewBtn.style.backgroundColor = '#FFC125';
+		amountUsedViewBtn.style.backgroundColor = '#f9f9f9';
 	});
 
 	amountUsedViewBtn.addEventListener('click', function() {
 		orderTable.style.display = 'none';
 		amountUsedTable.style.display = 'table';
+		orderViewBtn.style.backgroundColor = '#f9f9f9';
+		amountUsedViewBtn.style.backgroundColor = '#FFC125';
 	});
 
 

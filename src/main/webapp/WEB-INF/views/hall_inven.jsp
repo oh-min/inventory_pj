@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/hall_inven.css" />
 <script src="/resources/js/hall_inven.js"></script>
+<script src="/resources/js/orderContent.js"></script>
 <script type="text/javascript">
 	//let orderData = new Array(`${orderData}`);
 	//orderData = `${orderData}`;
@@ -92,6 +93,7 @@
 				</div>
 			</div>
 			<div id="now_inven_box">
+				<p class="tTitle">필요 및 주문 수량 요약</p>
 				<!-- 사용 재고 데이터 확인 -->
 				<p class="nonDisp" id="usedTacMBoxes"></p>
 				<p class="nonDisp" id="usedTacLBoxes"></p>
@@ -112,55 +114,61 @@
 					<tr>
 						<td>포장용기 M</td>
 						<td id="nowInvenTacM" class="nonDisp">${nowInven.tacM}</td>
-						<td id="availStockTacM"></td>
+						<td id="availStockTacM" class="fontBold"></td>
 						<td>10</td>
 						<td id="reqTacM"></td>
-						<td id="orderTacM"></td>
+						<td id="orderTacM" class="fontBold backY"></td>
 					</tr>
 					<tr>
 						<td>포장용기 L</td>
 						<td id="nowInvenTacL" class="nonDisp">${nowInven.tacL}</td>
-						<td id="availStockTacL"></td>
+						<td id="availStockTacL" class="fontBold"></td>
 						<td>10</td>
 						<td id="reqTacL"></td>
-						<td id="orderTacL"></td>
+						<td id="orderTacL" class="fontBold backY"></td>
 					</tr>
 					<tr>
 						<td>종이 용기</td>
 						<td id="nowInvenPaperTac" class="nonDisp">${nowInven.paperTac}</td>
-						<td id="availStockPaperTac"></td>
+						<td id="availStockPaperTac" class="fontBold"></td>
 						<td>10</td>
 						<td id="reqPaperTac"></td>
-						<td id="orderPaperTac"></td>
+						<td id="orderPaperTac" class="fontBold backY"></td>
 					</tr>
 					<tr>
 						<td>소스 용기</td>
 						<td id="nowInvenSauceTac" class="nonDisp">${nowInven.sauceTac}</td>
-						<td id="availStockSauceTac"></td>
+						<td id="availStockSauceTac" class="fontBold"></td>
 						<td>10</td>
 						<td id="reqSauceTac"></td>
-						<td id="orderSauceTac"></td>
+						<td id="orderSauceTac" class="fontBold backY"></td>
 					</tr>
 
 					<tr>
 						<td>나무 젓가락</td>
 						<td id="nowInvenChopstick" class="nonDisp">${nowInven.chopstick}</td>
-						<td id="availStockChopstick"></td>
+						<td id="availStockChopstick" class="fontBold"></td>
 						<td>10</td>
 						<td id="reqChopstick"></td>
-						<td id="orderChopstick"></td>
+						<td id="orderChopstick" class="fontBold backY"></td>
 					</tr>
 					<tr>
 						<td>일회용 스푼</td>
 						<td id="nowInvenSpoon" class="nonDisp">${nowInven.spoon}</td>
-						<td id="availStockSpoon"></td>
+						<td id="availStockSpoon" class="fontBold"></td>
 						<td>10</td>
 						<td id="reqSpoon"></td>
-						<td id="orderSpoon"></td>
+						<td id="orderSpoon" class="fontBold backY"></td>
 					</tr>
 				</table>
+				<button id="contentBtn" onclick="writeContent()">이메일 내용 작성 →</button>
 			</div>
-			<div id="order_inven_box">주문할 내역</div>
+			<div id="order_inven_box">
+				<p class="tTitle">재고 주문 요청</p>
+				<textarea id="orderContent">안녕하세요! H식당입니다.  
+				(주문해야하는 용품 목록 / 갯수) 부탁드립니다. 감사합니다!</textarea>
+				
+			</div>
 		</div>
 		<div class=" email_box">
 			<div id="email_btn_box">이메일 발송 API</div>
