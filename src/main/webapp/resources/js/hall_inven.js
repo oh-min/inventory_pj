@@ -200,27 +200,27 @@ function initialize(orderDataArr) {
 
 	let usedTacMBoxes;
 	usedTacMBoxes = tacM / itemsEachBoxTacM
-	console.log("포장 용기 M 박스단위 사용량 = " + usedTacMBoxes)
+	// console.log("포장 용기 M 박스단위 사용량 = " + usedTacMBoxes)
 
 	let usedTacLBoxes;
 	usedTacLBoxes = tacL / itemsEachBoxTacL
-	console.log("포장 용기 L 박스단위 사용량 = " + usedTacLBoxes)
+	// console.log("포장 용기 L 박스단위 사용량 = " + usedTacLBoxes)
 
 	let usedPaperTacBoxes;
 	usedPaperTacBoxes = paperTac / itemsEachBoxPaperTac
-	console.log("종이 용기 박스단위 사용량 = " + usedPaperTacBoxes)
+	// console.log("종이 용기 박스단위 사용량 = " + usedPaperTacBoxes)
 
 	let usedSauceTacBoxes;
 	usedSauceTacBoxes = sauceTac / itemsEachBoxSauceTac
-	console.log("소스 용기 박스단위 사용량 = " + usedSauceTacBoxes)
+	// console.log("소스 용기 박스단위 사용량 = " + usedSauceTacBoxes)
 
 	let usedChopstickBoxes;
 	usedChopstickBoxes = chopstick / itemsEachBoxChopstick
-	console.log("나무 젓가락 박스단위 사용량 = " + usedChopstickBoxes)
+	// console.log("나무 젓가락 박스단위 사용량 = " + usedChopstickBoxes)
 
 	let usedSpoonBoxes;
 	usedSpoonBoxes = spoon / itemsEachBoxSpoon
-	console.log("일회용 스푼 박스단위 사용량 = " + usedSpoonBoxes)
+	// console.log("일회용 스푼 박스단위 사용량 = " + usedSpoonBoxes)
 
 	document.getElementById("usedTacMBoxes").innerHTML = usedTacMBoxes;
 	document.getElementById("usedTacLBoxes").innerHTML = usedTacLBoxes;
@@ -237,12 +237,12 @@ function initialize(orderDataArr) {
 	let nowInvenChopstick = document.getElementById("nowInvenChopstick").innerText;
 	let nowInvenSpoon = document.getElementById("nowInvenSpoon").innerText;
 
-	console.log(nowInvenTacM - usedTacMBoxes)
-	console.log(nowInvenTacL - usedTacLBoxes)
-	console.log(nowInvenPaperTac - usedPaperTacBoxes)
-	console.log(nowInvenSauceTac - usedSauceTacBoxes)
-	console.log(nowInvenChopstick - usedChopstickBoxes)
-	console.log(nowInvenSpoon - usedSpoonBoxes)
+	// console.log(nowInvenTacM - usedTacMBoxes)
+	// console.log(nowInvenTacL - usedTacLBoxes)
+	// console.log(nowInvenPaperTac - usedPaperTacBoxes)
+	// console.log(nowInvenSauceTac - usedSauceTacBoxes)
+	// console.log(nowInvenChopstick - usedChopstickBoxes)
+	// console.log(nowInvenSpoon - usedSpoonBoxes)
 
 	document.getElementById("availStockTacM").innerText = nowInvenTacM - usedTacMBoxes;
 	document.getElementById("availStockTacL").innerText = nowInvenTacL - usedTacLBoxes;

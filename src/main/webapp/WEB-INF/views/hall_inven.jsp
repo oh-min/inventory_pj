@@ -112,7 +112,7 @@
 						<th>주문 수량</th>
 					</tr>
 					<tr>
-						<td>포장용기 M</td>
+						<td id="nameTacM">포장용기 M</td>
 						<td id="nowInvenTacM" class="nonDisp">${nowInven.tacM}</td>
 						<td id="availStockTacM" class="fontBold"></td>
 						<td>10</td>
@@ -120,7 +120,7 @@
 						<td id="orderTacM" class="fontBold backY"></td>
 					</tr>
 					<tr>
-						<td>포장용기 L</td>
+						<td id="nameTacL">포장용기 L</td>
 						<td id="nowInvenTacL" class="nonDisp">${nowInven.tacL}</td>
 						<td id="availStockTacL" class="fontBold"></td>
 						<td>10</td>
@@ -128,7 +128,7 @@
 						<td id="orderTacL" class="fontBold backY"></td>
 					</tr>
 					<tr>
-						<td>종이 용기</td>
+						<td id="namePaperTac">종이 용기</td>
 						<td id="nowInvenPaperTac" class="nonDisp">${nowInven.paperTac}</td>
 						<td id="availStockPaperTac" class="fontBold"></td>
 						<td>10</td>
@@ -136,7 +136,7 @@
 						<td id="orderPaperTac" class="fontBold backY"></td>
 					</tr>
 					<tr>
-						<td>소스 용기</td>
+						<td id="nameSauceTac">소스 용기</td>
 						<td id="nowInvenSauceTac" class="nonDisp">${nowInven.sauceTac}</td>
 						<td id="availStockSauceTac" class="fontBold"></td>
 						<td>10</td>
@@ -145,7 +145,7 @@
 					</tr>
 
 					<tr>
-						<td>나무 젓가락</td>
+						<td id="nameChopstick">나무 젓가락</td>
 						<td id="nowInvenChopstick" class="nonDisp">${nowInven.chopstick}</td>
 						<td id="availStockChopstick" class="fontBold"></td>
 						<td>10</td>
@@ -153,7 +153,7 @@
 						<td id="orderChopstick" class="fontBold backY"></td>
 					</tr>
 					<tr>
-						<td>일회용 스푼</td>
+						<td id="nameSpoon">일회용 스푼</td>
 						<td id="nowInvenSpoon" class="nonDisp">${nowInven.spoon}</td>
 						<td id="availStockSpoon" class="fontBold"></td>
 						<td>10</td>
@@ -165,8 +165,7 @@
 			</div>
 			<div id="order_inven_box">
 				<p class="tTitle">재고 주문 요청</p>
-				<textarea id="orderContent">안녕하세요! H식당입니다.  
-				(주문해야하는 용품 목록 / 갯수) 부탁드립니다. 감사합니다!</textarea>
+				<textarea id="orderContent"></textarea>
 				
 			</div>
 		</div>
