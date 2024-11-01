@@ -34,6 +34,7 @@
 		<%@include file="header.jsp"%>
 	</div>
 	<div class="main_content">
+
 		<div class="inven_box">
 			<div id="week_box">
 				<input type="text" id="period" class="day" readonly>
@@ -101,7 +102,6 @@
 				<p class="nonDisp" id="usedSauceTacBoxes"></p>
 				<p class="nonDisp" id="usedChopstickBoxes"></p>
 				<p class="nonDisp" id="usedSpoonBoxes"></p>
-
 				<!-- 주문 내역 테이블 -->
 				<table id="nowInvenT">
 					<tr id="nowInvenTTh">
@@ -164,15 +164,14 @@
 				<button id="contentBtn" onclick="writeContent()">이메일 내용 작성 →</button>
 			</div>
 			<div id="order_inven_box">
-				<p class="tTitle">재고 주문 요청</p>
-				<textarea id="orderContent"></textarea>
-				
+				<form action="${pageContext.request.contextPath}/mail" method="post" id="emailSend">
+					<p class="tTitle">재고 주문 요청</p>
+					<input name="recipient" value="ohhyemin96@naver.com"> <input name="subject" value="H식당 주문서	">
+					<textarea id="orderContent" name="content"></textarea>
+					<input type="submit" value="네이버 이메일 발송">
+				</form>
 			</div>
 		</div>
-		<div class=" email_box">
-			<div id="email_btn_box">이메일 발송 API</div>
-		</div>
-
 	</div>
 	<div class="footer_content"></div>
 </body>

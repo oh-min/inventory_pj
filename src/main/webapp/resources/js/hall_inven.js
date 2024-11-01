@@ -244,12 +244,12 @@ function initialize(orderDataArr) {
 	// console.log(nowInvenChopstick - usedChopstickBoxes)
 	// console.log(nowInvenSpoon - usedSpoonBoxes)
 
-	document.getElementById("availStockTacM").innerText = nowInvenTacM - usedTacMBoxes;
-	document.getElementById("availStockTacL").innerText = nowInvenTacL - usedTacLBoxes;
-	document.getElementById("availStockPaperTac").innerText = nowInvenPaperTac - usedPaperTacBoxes;
-	document.getElementById("availStockSauceTac").innerText = nowInvenSauceTac - usedSauceTacBoxes;
-	document.getElementById("availStockChopstick").innerText = nowInvenChopstick - usedChopstickBoxes;
-	document.getElementById("availStockSpoon").innerText = nowInvenSpoon - usedSpoonBoxes;
+	document.getElementById("availStockTacM").innerText = (nowInvenTacM - usedTacMBoxes).toFixed(2);
+	document.getElementById("availStockTacL").innerText = (nowInvenTacL - usedTacLBoxes).toFixed(2);
+	document.getElementById("availStockPaperTac").innerText = (nowInvenPaperTac - usedPaperTacBoxes).toFixed(2);
+	document.getElementById("availStockSauceTac").innerText = (nowInvenSauceTac - usedSauceTacBoxes).toFixed(2);
+	document.getElementById("availStockChopstick").innerText = (nowInvenChopstick - usedChopstickBoxes).toFixed(2);
+	document.getElementById("availStockSpoon").innerText = (nowInvenSpoon - usedSpoonBoxes).toFixed(2);
 	
 	/* 필요수량 */
 	let stdCount = 10; // 기준 갯수

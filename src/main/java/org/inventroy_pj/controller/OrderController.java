@@ -21,20 +21,20 @@ public class OrderController {
 	@Autowired
 	OrderService os;
 
-	/* ÁÖ¹®ÆäÀÌÁö·Î ÀÌµ¿ÇÏ±â */
+	/* ì£¼ë¬¸í•˜ê¸° í˜ì´ì§€ ì´ë™ */
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	public void order() {
 
 	};
 
-	/* food detail °³º° ÁÖ¹® ¸ñ·Ï */
+	/* food detail ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ */
 	@ResponseBody
 	@RequestMapping(value = "/order", method = RequestMethod.POST)
 	public Object submit_order(HttpSession session, HttpServletRequest req) throws Exception {
-		System.out.println("controller ¿¬°á¿Ï·á"); // ¿©±â ±îÁö ¿Ï·á
+		System.out.println("controller ï¿½ï¿½ï¿½ï¿½Ï·ï¿½"); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		// ajax¸¦ ÅëÇØ ³Ñ¾î¿Â ¹è¿­ µ¥ÀÌÅÍ ¼±¾ğ
+		// ajaxï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		String[] order_num = req.getParameterValues("order_num");
 		String[] regdate = req.getParameterValues("regdate");
@@ -47,15 +47,15 @@ public class OrderController {
 		try {
 			if (order_num != null && order_num.length > 0) {
 				for (int i = 0; i < order_num.length; i++) {
-					System.out.println("ÁÖ¹® ¹øÈ£ : " + i + " : " + order_num[i]);
-					System.out.println("ÁÖ¹® ½Ã°£ : " + i + " : " + regdate[i]);
-					System.out.println("Å×ÀÌºí ¹øÈ£ : " + i + " : " + table_num[i]);
-					System.out.println("ÃÑ °¡°İ : " + i + " : " + total_price[i]);
-					System.out.println("À½½Ä : " + i + " : " + food[i]);
-					System.out.println("°¹¼ö : " + i + " : " + cnt[i]);
-					System.out.println("°¡°İ : " + i + " : " + price[i]);
+					System.out.println("ï¿½Ö¹ï¿½ ï¿½ï¿½È£ : " + i + " : " + order_num[i]);
+					System.out.println("ï¿½Ö¹ï¿½ ï¿½Ã°ï¿½ : " + i + " : " + regdate[i]);
+					System.out.println("ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½È£ : " + i + " : " + table_num[i]);
+					System.out.println("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + i + " : " + total_price[i]);
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ : " + i + " : " + food[i]);
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ : " + i + " : " + cnt[i]);
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ : " + i + " : " + price[i]);
 
-					// food detail °³º° ÁÖ¹® ¸ñ·Ï(ÁÖ¹® ¹øÈ£, Å×ÀÌºí ¹øÈ£, À½½Ä, °¹¼ö, °¡°İ)
+					// food detail ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½(ï¿½Ö¹ï¿½ ï¿½ï¿½È£, ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½È£, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½)
 					Order_detailVO odvo = new Order_detailVO();
 
 					odvo.setOrder_num(order_num[i]);
@@ -66,10 +66,10 @@ public class OrderController {
 
 					System.out.println(odvo);
 
-					os.submit_order(odvo); // OrderVO °´Ã¼¸¦ ¼­ºñ½º·Î Àü´Ş
+					os.submit_order(odvo); // OrderVO ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ñ½º·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 				}
-				// order list ÃÑ ÁÖ¹® ¸ñ·Ï(ÁÖ¹® ¹øÈ£, ÁÖ¹® ½Ã°£, Å×ÀÌºí ¹øÈ£, ÃÑ °¡°İ)
+				// order list ï¿½ï¿½ ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½(ï¿½Ö¹ï¿½ ï¿½ï¿½È£, ï¿½Ö¹ï¿½ ï¿½Ã°ï¿½, ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½È£, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 				Order_totalVO otvo = new Order_totalVO();
 
 				otvo.setOrder_num(order_num[0]);
@@ -79,7 +79,7 @@ public class OrderController {
 
 				System.out.println(otvo);
 
-				os.submit_order_total(otvo); // OrderVO °´Ã¼¸¦ ¼­ºñ½º·Î Àü´Ş
+				os.submit_order_total(otvo); // OrderVO ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ñ½º·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 				resultMap.put("result", "success");
 			} else {

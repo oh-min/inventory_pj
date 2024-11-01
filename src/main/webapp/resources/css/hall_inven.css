@@ -12,7 +12,7 @@
 	border: 1px solid #ccc;
 	border-radius: 6px;
 	width: 31%;
-	height: 650px;
+	height: 740px;
 	margin-top: 20px;
 	background-color: white;
 }
@@ -45,7 +45,7 @@
 }
 
 #tableBox1 {
-	max-height: 550px;
+	max-height: 630px;
 	overflow-y: scroll;
 }
 
@@ -117,11 +117,4 @@ textarea {
 	margin: 0 auto;
 	display: block;
 	font-size: 16px;
-}
-
-.email_box {
-	border: 1px solid #ccc;
-	border-radius: 6px;
-	margin: 20px;
-	height: 57px;
 }

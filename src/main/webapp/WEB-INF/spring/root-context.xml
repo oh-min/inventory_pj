@@ -27,4 +27,7 @@
 
 	<!-- service 인지시켜주기 -->
 	<context:component-scan base-package="org.inventory_pj.service"></context:component-scan>
+	
+	<!-- mail -->
+	<bean id="mailService" class="org.inventory_pj.service.EmailService"/>
 </beans>
