@@ -166,9 +166,10 @@
 			<div id="order_inven_box">
 				<form action="${pageContext.request.contextPath}/mail" method="post" id="emailSend">
 					<p class="tTitle">재고 주문 요청</p>
-					<input name="recipient" value="ohhyemin96@naver.com"> <input name="subject" value="H식당 주문서	">
+					<input name="recipient" value="0000@naver.com" id="recipient"> <br>
+					<input name="subject" value="H식당 주문서	" id="subject">
 					<textarea id="orderContent" name="content"></textarea>
-					<input type="submit" value="네이버 이메일 발송">
+					<input type="submit" value="이메일 발송" id="emailBtn">
 				</form>
 			</div>
 		</div>

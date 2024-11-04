@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="left-content">
-	<a href="/">Inventory</a>
+	<a href="/">H-Inv</a>
 </div>
 
 <!-- (임시) 매니저 로그인시 -> 매니저, 홀 로그인시 -> 홀, 주방 로그인시 -> 주방 -->
