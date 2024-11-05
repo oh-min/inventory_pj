@@ -5,4 +5,3 @@
 		type="password" id="password" name="pw" required> <br> <br> <input id="login_btn" type="submit" value="로그인"
 		onclick="submit_form()">
 </form>
-<input id="find_pw" type="button" value="비밀번호 찾기">

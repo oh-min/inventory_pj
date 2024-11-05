@@ -43,10 +43,9 @@ public class MemberController {
 					try {
 						response.setContentType("text/html; charset=utf-8");
 						PrintWriter w = response.getWriter();
-						w.write("<script>alert('뭐지?저장된 정보와 일치하지 않습니다.');location.href='/';</script>");
+						w.write("<script>alert('저장된 정보와 일치하지 않습니다.');window.history.back();</script>");
 						w.flush();
 						w.close();
-						return "/home";
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -57,7 +56,7 @@ public class MemberController {
 				try {
 					response.setContentType("text/html; charset=utf-8");
 					PrintWriter w = response.getWriter();
-					w.write("<script>alert('저장된 정보와 일치하지 않습니다.');location.href='/';</script>");
+					w.write("<script>alert('저장된 정보와 일치하지 않습니다.');window.history.back();</script>");
 					w.flush();
 					w.close();
 					return "/home";
