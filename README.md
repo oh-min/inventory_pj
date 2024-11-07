@@ -11,7 +11,6 @@
 ## 개발 환경
 - 프레임워크 및 언어 : Java, JavaScript, SpringMVC, CSS, JSTL
 - 데이터베이스 : MySQL
-- 버전 관리 : Git
 - IDE : Eclipse
 - 서버 : Apache Tomcat
 - 운영 체제 : macOS
